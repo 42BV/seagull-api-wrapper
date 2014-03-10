@@ -30,7 +30,8 @@ public class GetContactsCommandImpl extends AbstractGetCommand<HttpGet, Contacts
 
     //Static, omdat super() deze methode anders niet accepteert
     private static String modifyUrl(String url) {
-        return url += contactsUrlString;
+        url += CONTACTS_URL_STRING;
+        return url;
     }
 
     @Override
@@ -64,7 +65,6 @@ public class GetContactsCommandImpl extends AbstractGetCommand<HttpGet, Contacts
 
     public List<Contacts> getReturnObject(HttpResponse response) {
         JsonEntity json = new JsonEntity(createJsonString(response));
-        List<Contacts> contacts = createObjectsList(json);
-        return contacts;
+        return createObjectsList(json);
     }
 }

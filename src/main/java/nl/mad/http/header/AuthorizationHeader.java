@@ -1,8 +1,8 @@
 package nl.mad.http.header;
 
 public class AuthorizationHeader extends AbstractHeader {
-    private final String NAME = "Authorization";
-    private final String BASIC = "Basic ";
+    private static final String NAME = "Authorization";
+    private static final String BASIC = "Basic ";
     private String value;
 
     public AuthorizationHeader(String value) {

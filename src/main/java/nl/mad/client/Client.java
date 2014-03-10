@@ -15,8 +15,8 @@ public class Client {
         Account account = new Account(new AccountCredentials("https://api.insight.ly/v2.1/", "b1b4fe31-a5f3-4261-a6cf-3ef87cf02102"));
 
         Contacts contact = new Contacts();
-        contact.setFirstName("Tom");
-        contact.setLastName("van den Bulk");
+        contact.setFirstName("Brim");
+        contact.setLastName("Bamboo");
 
         //account.getCommandFactory().getContactsCommandFactory().createPostContactsCommand(contact).call();
         List<Contacts> contactList = account.getCommandFactory().getContactsCommandFactory().createGetContactsCommand().call();
@@ -36,8 +36,8 @@ public class Client {
 
     public static void findContact(List<Contacts> list, Account account) {
         for (Contacts cont : list) {
-            if (cont.getFirstName().equals("Tom")) {
-                cont.setFirstName("Kevin");
+            if (("Henkert").equals(cont.getFirstName())) {
+                cont.setFirstName("Ali");
                 System.out.println("ACCOUNT GEVONDEN");
                 account.getCommandFactory().getContactsCommandFactory().createPutContactsCommand(cont).call();
             }

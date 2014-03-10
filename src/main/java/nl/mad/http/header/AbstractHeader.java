@@ -15,7 +15,7 @@ public abstract class AbstractHeader {
 
     public abstract String getHeaderName();
 
-    public String getHeaderValue(){
+    public String getHeaderValue() {
         return value;
     }
 }

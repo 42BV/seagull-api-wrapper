@@ -17,13 +17,12 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public abstract class AbstractCommand<M extends HttpRequestBase, N> implements Callable<List<N>> {
-    protected M request;
-    private HttpResponse response;
+    private M request;
     private Account account;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractCommand.class);
 
-    protected static final String contactsUrlString = "CONTACTS";
+    protected static final String CONTACTS_URL_STRING = "Contacts";
 
     public AbstractCommand(Account account, String url) {
         this.request = createRequest(url);
@@ -31,6 +30,7 @@ public abstract class AbstractCommand<M extends HttpRequestBase, N> implements C
     }
 
     public List<N> call() {
+        HttpResponse response = null;
         try {
             response = account.getHttpClient().execute(request);
             LOGGER.info("Request:" + request.getRequestLine());
@@ -41,7 +41,7 @@ public abstract class AbstractCommand<M extends HttpRequestBase, N> implements C
         return getReturnObject(response);
     }
 
-    public List<N> getReturnObject(HttpResponse response) {
+    public List<N> getReturnObject(HttpResponse httpResponse) {
         return null;
     }
 

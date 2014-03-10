@@ -33,7 +33,8 @@ public class PostContactsCommandImpl extends AbstractCommand<HttpPost, Contacts>
 
     //Static, omdat super() deze methode anders niet accepteert
     private static String modifyUrl(String url) {
-        return url += contactsUrlString;
+        url += CONTACTS_URL_STRING;
+        return url;
     }
 
     @Override
@@ -50,14 +51,14 @@ public class PostContactsCommandImpl extends AbstractCommand<HttpPost, Contacts>
     public void addDataToPostRequest() {
         StringEntity stringEntity = null;
         try {
-            stringEntity = new StringEntity(convertObjectToJsonString(contact));
+            stringEntity = new StringEntity(convertObjectToJsonString());
         } catch (UnsupportedEncodingException e) {
             LOGGER.error("UnsupportedEncodingException, message: " + e.getLocalizedMessage());
         }
         getRequestBase().setEntity(stringEntity);
     }
 
-    private String convertObjectToJsonString(Contacts contact) {
+    private String convertObjectToJsonString() {
         ObjectWriter writer = createObjectMapper().writer().withDefaultPrettyPrinter();
         String jsonString = null;
         try {

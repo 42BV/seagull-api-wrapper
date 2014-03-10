@@ -17,7 +17,8 @@ public class DeleteContactsCommandImpl extends AbstractCommand<HttpDelete, Conta
 
     //Static, omdat super() deze methode anders niet accepteert
     private static String modifyUrl(String url, int id) {
-        return url += contactsUrlString + "/" + id;
+        url += CONTACTS_URL_STRING + "/" + id;
+        return url;
     }
 
     @Override

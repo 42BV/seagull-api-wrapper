@@ -8,12 +8,12 @@ import nl.mad.model.Contacts;
 
 public interface ContactsCommandFactory {
 
-    public GetContactsCommand createGetContactsCommand();
+    GetContactsCommand createGetContactsCommand();
 
-    public PostContactsCommand createPostContactsCommand(Contacts contact);
+    PostContactsCommand createPostContactsCommand(Contacts contact);
 
-    public DeleteContactsCommand createDeleteContactsCommand(int id);
+    DeleteContactsCommand createDeleteContactsCommand(int id);
 
-    public PutContactsCommand createPutContactsCommand(Contacts contact);
+    PutContactsCommand createPutContactsCommand(Contacts contact);
 
 }
