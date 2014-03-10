@@ -14,4 +14,50 @@ public class ContactLink {
     @JsonProperty("DETAILS")
     private String details;
 
+    public int getContactLinkId() {
+        return contactLinkId;
+    }
+
+    public void setContactLinkId(int contactLinkId) {
+        this.contactLinkId = contactLinkId;
+    }
+
+    public int getFirstContactId() {
+        return firstContactId;
+    }
+
+    public void setFirstContactId(int firstContactId) {
+        this.firstContactId = firstContactId;
+    }
+
+    public int getSecondContactId() {
+        return secondContactId;
+    }
+
+    public void setSecondContactId(int secondContactId) {
+        this.secondContactId = secondContactId;
+    }
+
+    public int getRelationshipId() {
+        return relationshipId;
+    }
+
+    public void setRelationshipId(int relationshipId) {
+        this.relationshipId = relationshipId;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    @Override
+    public String toString() {
+        return "ContactLink [contactLinkId=" + contactLinkId + ", firstContactId=" + firstContactId + ", secondContactId=" + secondContactId
+                + ", relationshipId=" + relationshipId + ", details=" + details + "]";
+    }
+
 }

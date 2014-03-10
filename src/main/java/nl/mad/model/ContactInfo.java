@@ -14,4 +14,49 @@ public class ContactInfo {
     @JsonProperty("DETAIL")
     private String detail;
 
+    public int getContactInfoId() {
+        return contactInfoId;
+    }
+
+    public void setContactInfoId(int contactInfoId) {
+        this.contactInfoId = contactInfoId;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getSubType() {
+        return subType;
+    }
+
+    public void setSubType(String subType) {
+        this.subType = subType;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    @Override
+    public String toString() {
+        return "ContactInfo [contactInfoId=" + contactInfoId + ", type=" + type + ", subType=" + subType + ", label=" + label + ", detail=" + detail + "]";
+    }
+
 }

@@ -8,6 +8,10 @@ import nl.mad.model.Contacts;
 
 public class Client {
 
+    private Client() {
+
+    }
+
     public static void main(String[] args) {
 
         long start = System.currentTimeMillis();
@@ -36,7 +40,7 @@ public class Client {
 
     public static void findContact(List<Contacts> list, Account account) {
         for (Contacts cont : list) {
-            if (("Henkert").equals(cont.getFirstName())) {
+            if ("Henkert".equals(cont.getFirstName())) {
                 cont.setFirstName("Ali");
                 System.out.println("ACCOUNT GEVONDEN");
                 account.getCommandFactory().getContactsCommandFactory().createPutContactsCommand(cont).call();

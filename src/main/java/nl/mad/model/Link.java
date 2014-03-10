@@ -22,4 +22,83 @@ public class Link {
     @JsonProperty("DETAILS")
     private String details;
 
+    public int getLinkId() {
+        return linkId;
+    }
+
+    public void setLinkId(int linkId) {
+        this.linkId = linkId;
+    }
+
+    public int getContactId() {
+        return contactId;
+    }
+
+    public void setContactId(int contactId) {
+        this.contactId = contactId;
+    }
+
+    public int getOpportunityId() {
+        return opportunityId;
+    }
+
+    public void setOpportunityId(int opportunityId) {
+        this.opportunityId = opportunityId;
+    }
+
+    public int getOrganisationId() {
+        return organisationId;
+    }
+
+    public void setOrganisationId(int organisationId) {
+        this.organisationId = organisationId;
+    }
+
+    public int getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
+    }
+
+    public int getSecondProjectId() {
+        return secondProjectId;
+    }
+
+    public void setSecondProjectId(int secondProjectId) {
+        this.secondProjectId = secondProjectId;
+    }
+
+    public int getSecondOpportunityId() {
+        return secondOpportunityId;
+    }
+
+    public void setSecondOpportunityId(int secondOpportunityId) {
+        this.secondOpportunityId = secondOpportunityId;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    @Override
+    public String toString() {
+        return "Link [linkId=" + linkId + ", contactId=" + contactId + ", opportunityId=" + opportunityId + ", organisationId=" + organisationId
+                + ", projectId=" + projectId + ", secondProjectId=" + secondProjectId + ", secondOpportunityId=" + secondOpportunityId + ", role=" + role
+                + ", details=" + details + "]";
+    }
+
 }
