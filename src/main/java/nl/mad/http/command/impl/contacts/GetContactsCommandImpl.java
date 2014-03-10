@@ -46,7 +46,7 @@ public class GetContactsCommandImpl extends AbstractGetCommand<HttpGet, Contacts
 
     @Override
     protected List<Contacts> createObjectsList(JsonEntity json) {
-        List<Contacts> contacts = new ArrayList<>();
+        List<Contacts> contacts = new ArrayList<Contacts>();
         for (JsonEntity contact : json) {
             try {
                 contacts.add(createObjectMapper().readValue(contact.toString(), Contacts.class));
