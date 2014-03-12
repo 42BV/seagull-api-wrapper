@@ -40,7 +40,7 @@ public class GetContactsCommandImpl extends AbstractGetCommand<HttpGet, Contacts
         try {
             jsonString = EntityUtils.toString(response.getEntity());
         } catch (IOException e) {
-            LOGGER.error("IOException, message: " + e.getLocalizedMessage());
+            LOGGER.error("IO exception, message: " + e.getLocalizedMessage());
         }
         return jsonString;
     }
@@ -52,7 +52,7 @@ public class GetContactsCommandImpl extends AbstractGetCommand<HttpGet, Contacts
             try {
                 contacts.add(createObjectMapper().readValue(contact.toString(), Contacts.class));
             } catch (IOException e) {
-                LOGGER.error("IOException, message: " + e.getLocalizedMessage());
+                LOGGER.error("IO exception, message: " + e.getLocalizedMessage());
             }
         }
         return contacts;

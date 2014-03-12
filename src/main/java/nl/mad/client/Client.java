@@ -6,7 +6,7 @@ import nl.mad.http.Account;
 import nl.mad.http.AccountCredentials;
 import nl.mad.model.Contacts;
 
-public class Client {
+public final class Client {
 
     private Client() {
 
@@ -22,7 +22,7 @@ public class Client {
         contact.setFirstName("Brim");
         contact.setLastName("Bamboo");
 
-        //account.getCommandFactory().getContactsCommandFactory().createPostContactsCommand(contact).call();
+        account.getCommandFactory().getContactsCommandFactory().createPostContactsCommand(contact).call();
         List<Contacts> contactList = account.getCommandFactory().getContactsCommandFactory().createGetContactsCommand().call();
 
         //account.getCommandFactory().getContactsCommandFactory().createDeleteContactsCommand(54664608).call();

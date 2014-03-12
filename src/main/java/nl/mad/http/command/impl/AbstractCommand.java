@@ -36,7 +36,7 @@ public abstract class AbstractCommand<M extends HttpRequestBase, N> implements C
             LOGGER.info("Request:" + request.getRequestLine());
             LOGGER.info("Statusline: " + response.getStatusLine());
         } catch (IOException e) {
-            LOGGER.error("IOException, message: " + e.getLocalizedMessage());
+            LOGGER.error("IO exception, message: " + e.getLocalizedMessage());
         }
         return getReturnObject(response);
     }

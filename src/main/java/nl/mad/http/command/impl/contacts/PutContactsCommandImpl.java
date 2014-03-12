@@ -5,7 +5,7 @@ import java.util.List;
 
 import nl.mad.http.Account;
 import nl.mad.http.command.base.contacts.PutContactsCommand;
-import nl.mad.http.command.impl.AbstractCommand;
+import nl.mad.http.command.impl.AbstractPostCommand;
 import nl.mad.http.header.AuthorizationHeader;
 import nl.mad.http.header.ContentTypeHeader;
 import nl.mad.model.Contacts;
@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
-public class PutContactsCommandImpl extends AbstractCommand<HttpPut, Contacts> implements PutContactsCommand {
+public class PutContactsCommandImpl extends AbstractPostCommand<HttpPut, Contacts> implements PutContactsCommand {
 
     private Contacts contact;
 
@@ -48,23 +48,25 @@ public class PutContactsCommandImpl extends AbstractCommand<HttpPut, Contacts> i
         return super.call();
     }
 
-    public void addDataToPostRequest() {
+    @Override
+    protected void addDataToPostRequest() {
         StringEntity stringEntity = null;
         try {
             stringEntity = new StringEntity(convertObjectToJsonString());
         } catch (UnsupportedEncodingException e) {
-            LOGGER.error("UnsupportedEncodingException, message: " + e.getLocalizedMessage());
+            LOGGER.error("Unsupported encoding exception, message: " + e.getLocalizedMessage());
         }
         getRequestBase().setEntity(stringEntity);
     }
 
-    private String convertObjectToJsonString() {
+    @Override
+    protected String convertObjectToJsonString() {
         ObjectWriter writer = createObjectMapper().writer().withDefaultPrettyPrinter();
         String jsonString = null;
         try {
             jsonString = writer.writeValueAsString(contact);
         } catch (JsonProcessingException e) {
-            LOGGER.error("JsonProcessingException, message: " + e.getLocalizedMessage());
+            LOGGER.error("Json processing exception, message: " + e.getLocalizedMessage());
         }
         return jsonString;
     }
