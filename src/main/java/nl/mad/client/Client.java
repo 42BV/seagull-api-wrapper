@@ -19,15 +19,17 @@ public final class Client {
         Account account = new Account(new AccountCredentials("https://api.insight.ly/v2.1/", "b1b4fe31-a5f3-4261-a6cf-3ef87cf02102"));
 
         Contacts contact = new Contacts();
-        contact.setFirstName("Brim");
-        contact.setLastName("Bamboo");
+        contact.setFirstName("Jan");
+        contact.setLastName("Willem");
 
+        //account.getCommandFactory().getContactsCommandFactory().createDeleteContactsCommand(54946439).call();
         account.getCommandFactory().getContactsCommandFactory().createPostContactsCommand(contact).call();
-        List<Contacts> contactList = account.getCommandFactory().getContactsCommandFactory().createGetContactsCommand().call();
 
-        //account.getCommandFactory().getContactsCommandFactory().createDeleteContactsCommand(54664608).call();
-        printList(contactList);
+        //List<Contacts> contactList = account.getCommandFactory().getContactsCommandFactory().createGetContactsCommand().call();
+        //printList(contactList);
+
         //findContact(contactList, account);
+
         long stop = System.currentTimeMillis();
         System.out.println("Time it took: " + (stop - start));
     }
@@ -40,10 +42,10 @@ public final class Client {
 
     public static void findContact(List<Contacts> list, Account account) {
         for (Contacts cont : list) {
-            if ("Henkert".equals(cont.getFirstName())) {
-                cont.setFirstName("Ali");
-                System.out.println("ACCOUNT GEVONDEN");
+            if ("asdfasdfasdf".equals(cont.getFirstName())) {
+                cont.setFirstName("a");
                 account.getCommandFactory().getContactsCommandFactory().createPutContactsCommand(cont).call();
+                System.out.println("ACCOUNT GEVONDEN");
             }
         }
     }

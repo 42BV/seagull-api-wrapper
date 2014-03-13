@@ -4,6 +4,7 @@ import nl.mad.client.CommandFactory;
 
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 
 public class Account {
 
@@ -23,6 +24,7 @@ public class Account {
     }
 
     public CloseableHttpClient getHttpClient() {
+
         if (httpClient == null) {
             return createHttpClient();
         } else {
@@ -31,8 +33,15 @@ public class Account {
     }
 
     private CloseableHttpClient createHttpClient() {
-        httpClient = HttpClients.custom().build();
+        httpClient = HttpClients.custom().setConnectionManager(createConnectionManager()).build();
         return httpClient;
+    }
+
+    private PoolingHttpClientConnectionManager createConnectionManager() {
+        PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
+        connectionManager.setMaxTotal(100);
+        connectionManager.setDefaultMaxPerRoute(100);
+        return connectionManager;
     }
 
 }
