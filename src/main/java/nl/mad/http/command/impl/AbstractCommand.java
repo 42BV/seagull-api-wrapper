@@ -63,8 +63,8 @@ public abstract class AbstractCommand<M extends HttpRequestBase, N> implements C
     private ObjectMapper configureObjectMapper(ObjectMapper objectMapper) {
         objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
         objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
+        //objectMapper.configure(DeserializationFeature.UNWRAP_ROOT_VALUE, state)
         objectMapper.setSerializationInclusion(Include.NON_NULL);
         return objectMapper;
     }
-
 }

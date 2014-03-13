@@ -1,4 +1,4 @@
-package oehoe;
+package nl.mad;
 
 import static org.junit.Assert.assertEquals;
 

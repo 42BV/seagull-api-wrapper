@@ -6,11 +6,20 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 
+/**
+ *Account is the starting point of the API. From here you can call the CommandFactory.
+ *It also creates and manages a CloseableHttpClient.
+ *@author Ruben Zorgman
+ */
 public class Account {
 
     private AccountCredentials accountCredentials;
     private CloseableHttpClient httpClient;
 
+    /**
+     * Creates a new instance of Account, along with the account credentials that are set by the user.
+     * @param accountCredentials The credentials for an account.
+     */
     public Account(AccountCredentials accountCredentials) {
         this.accountCredentials = accountCredentials;
     }
@@ -23,6 +32,10 @@ public class Account {
         return new CommandFactory(this);
     }
 
+    /**
+     * Gets the HttpClient if one exists, else it will make a new one.
+     * @return The httpClient.
+     */
     public CloseableHttpClient getHttpClient() {
 
         if (httpClient == null) {
@@ -38,9 +51,10 @@ public class Account {
     }
 
     private PoolingHttpClientConnectionManager createConnectionManager() {
+        int maxConnections = 100;
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
-        connectionManager.setMaxTotal(100);
-        connectionManager.setDefaultMaxPerRoute(100);
+        connectionManager.setMaxTotal(maxConnections);
+        connectionManager.setDefaultMaxPerRoute(maxConnections);
         return connectionManager;
     }
 
