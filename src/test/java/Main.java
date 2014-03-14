@@ -1,8 +1,8 @@
 import java.util.List;
 
-import nl.mad.http.Account;
-import nl.mad.http.AccountCredentials;
-import nl.mad.model.Contacts;
+import nl.mad.oehoe.model.Account;
+import nl.mad.oehoe.model.AccountCredentials;
+import nl.mad.oehoe.model.Contact;
 
 public final class Main {
 
@@ -20,7 +20,7 @@ public final class Main {
 
         Account account = new Account(new AccountCredentials("b1b4fe31-a5f3-4261-a6cf-3ef87cf02102"));
 
-        Contacts contact = new Contacts();
+        Contact contact = new Contact();
         contact.setFirstName("Jan");
         contact.setLastName("Willem");
 
@@ -28,7 +28,7 @@ public final class Main {
 
         //account.getCommandFactory().getContactsCommandFactory().createPostContactsCommand(contact).call();
 
-        List<Contacts> contactList = account.getCommandFactory().getContactsCommandFactory().createGetContactsCommand().call();
+        List<Contact> contactList = account.getCommandFactory().getContactsCommandFactory().createGetContactsCommand().call();
         printList(contactList);
 
         //findContact(contactList, account);
@@ -41,14 +41,14 @@ public final class Main {
      * Prints a list of contacts.
      * @param contactList
      */
-    public static void printList(List<Contacts> contactList) {
-        for (Contacts o : contactList) {
+    public static void printList(List<Contact> contactList) {
+        for (Contact o : contactList) {
             System.out.println(o.toString());
         }
     }
 
-    public static void findContact(List<Contacts> list, Account account) {
-        for (Contacts cont : list) {
+    public static void findContact(List<Contact> list, Account account) {
+        for (Contact cont : list) {
             if ("Jan".equals(cont.getFirstName())) {
                 account.getCommandFactory().getContactsCommandFactory().createDeleteContactsCommand(cont.getContactId()).call();
                 System.out.println("ACCOUNT GEVONDEN");

@@ -1,0 +1,76 @@
+Contact:
+
+{
+    CONTACT_ID: 00000000
+    SALUTATION: "dhr"
+    FIRST_NAME: "Test"
+    LAST_NAME: "van Test"
+    BACKGROUND: "Test"
+    IMAGE_URL: "http://s3.amazonaws.com/insightly.userfiles/43723/"
+    DEFAULT_LINKED_ORGANISATION: 25545
+    DATE_CREATED_UTC: "2014-02-28 13:09:08"
+    DATE_UPDATED_UTC: "2014-03-05 11:28:04"
+    VISIBLE_TO: "INDIVIDUALS"
+    VISIBLE_TEAM_ID: 1592009
+    VISIBLE_USER_IDS: null
+    CUSTOMFIELDS: 
+    {
+        CUSTOM_FIELD_ID: "CONTACT_FIELD_2"
+        FIELD_VALUE: "aaa"
+    }
+    ADDRESSES:
+    {
+        ADDRESS_ID: 021245
+        ADDRESS_TYPE: "WORK"
+        STREET: "Test"
+        CITY: "Test"
+        STATE: "Test"
+        POSTCODE: "1245Te"
+        COUNTRY: "Test"
+    }
+    CONTACTINFOS: 
+    {
+        CONTACT_INFO_ID: 97910000
+        TYPE: "EMAIL"
+        SUBTYPE: null
+        LABEL: "WORK"
+        DETAIL: "test@test.nl"
+    }
+    {
+        CONTACT_INFO_ID: 900002
+        TYPE: "PHONE"
+        SUBTYPE: null
+        LABEL: "WORK"
+        DETAIL: "+316000000"
+    }
+    {
+        CONTACT_INFO_ID: 90003
+        TYPE: "WEBSITE"
+        SUBTYPE: null
+        LABEL: "WORK"
+        DETAIL: "www.test.nl"
+    }
+    DATES:
+    {
+        DATE_ID: 285106
+        OCCASION_NAME: "Ventoux"
+        OCCASION_DATE: "2014-09-12 00:00:00"
+        REPEAT_YEARLY: false
+        CREATE_TASK_YEARLY: true
+    }
+    TAGS: null
+    LINKS: 
+    {
+        LINK_ID: 33402963
+        CONTACT_ID: 53784532
+        OPPORTUNITY_ID: null
+        ORGANISATION_ID: 26704260
+        PROJECT_ID: null
+        SECOND_PROJECT_ID: null
+        SECOND_OPPORTUNITY_ID: null
+        ROLE: "Head of Construction"
+        DETAILS: null
+    }
+    CONTACTLINKS: null
+    EMAILLINKS: null
+}
