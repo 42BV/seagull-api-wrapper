@@ -16,7 +16,6 @@ public class PutContactsCommandImpl extends AbstractPostContactsCommand<HttpPut,
         super(account, contact);
         setHeader(new ContentTypeHeader("application/json"));
         setHeader(new AuthorizationHeader(account.getAccountCredentials().getBase64ApiKey()));
-        System.out.println(contact.getContactId());
     }
 
     @Override

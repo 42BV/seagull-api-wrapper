@@ -17,8 +17,8 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 /**
  * AbstractPostContactsCommand is an abstract class that is used by PutContactsCommandImpl and PostContactsCommandImpl
  * because both these classes use the same methods to post data to the Insightly API.
- * @param <M>
- * @param <N>
+ * @param <M> The HttpEntityEnclosingRequestBase
+ * @param <N> The generic object
  * @author Ruben Zorgman
  */
 public abstract class AbstractPostContactsCommand<M extends HttpEntityEnclosingRequestBase, N> extends AbstractCommand<M, N> {
@@ -28,7 +28,7 @@ public abstract class AbstractPostContactsCommand<M extends HttpEntityEnclosingR
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractPostContactsCommand.class);
 
     /**
-     * Creates.
+     * Creates an instance of AbstractPostContactsCommand
      * @param account The account
      * @param contact The contact
      */

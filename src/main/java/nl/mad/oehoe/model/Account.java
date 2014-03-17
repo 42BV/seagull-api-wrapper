@@ -1,7 +1,7 @@
 package nl.mad.oehoe.model;
 
-
-import nl.mad.oehoe.command.CommandFactory;
+import nl.mad.oehoe.command.base.factory.ContactsCommandFactory;
+import nl.mad.oehoe.command.impl.factory.ContactsCommandFactoryImpl;
 
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -29,8 +29,8 @@ public class Account {
         return accountCredentials;
     }
 
-    public CommandFactory getCommandFactory() {
-        return new CommandFactory(this);
+    public ContactsCommandFactory getContactsCommandFactory() {
+        return new ContactsCommandFactoryImpl(this);
     }
 
     /**

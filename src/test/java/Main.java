@@ -24,11 +24,11 @@ public final class Main {
         contact.setFirstName("Jan");
         contact.setLastName("Willem");
 
-        //account.getCommandFactory().getContactsCommandFactory().createDeleteContactsCommand(54946439).call();
+        //account.getContactsCommandFactory().createDeleteContactsCommand(54946439).call();
 
-        //account.getCommandFactory().getContactsCommandFactory().createPostContactsCommand(contact).call();
+        //account.getContactsCommandFactory().createPostContactsCommand(contact).call();
 
-        List<Contact> contactList = account.getCommandFactory().getContactsCommandFactory().createGetContactsCommand().call();
+        List<Contact> contactList = account.getContactsCommandFactory().createGetContactsCommand().call();
         printList(contactList);
 
         //findContact(contactList, account);
@@ -50,7 +50,7 @@ public final class Main {
     public static void findContact(List<Contact> list, Account account) {
         for (Contact cont : list) {
             if ("Jan".equals(cont.getFirstName())) {
-                account.getCommandFactory().getContactsCommandFactory().createDeleteContactsCommand(cont.getContactId()).call();
+                account.getContactsCommandFactory().createDeleteContactsCommand(cont.getContactId()).call();
                 System.out.println("ACCOUNT GEVONDEN");
             }
         }

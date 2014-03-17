@@ -1,10 +1,9 @@
 package nl.mad.oehoe.model;
 
 import static org.junit.Assert.assertNotNull;
-import nl.mad.oehoe.model.Account;
-import nl.mad.oehoe.model.AccountCredentials;
 
 import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Test class for Account.
@@ -20,8 +19,21 @@ public class AccountTest {
     public void setup() {
         accountCredentials = new AccountCredentials("Key");
         account = new Account(accountCredentials);
-        assertNotNull("Account credenials should not be null, ", accountCredentials);
-        assertNotNull("Account should not be null, ", account);
+    }
+
+    @Test
+    public void testContactsCommandFactory() {
+        assertNotNull("Contacts Command Factory should not be null, ", account.getContactsCommandFactory());
+    }
+
+    @Test
+    public void testAccountCredentials() {
+        assertNotNull("Account credentials should not be null, ", account.getAccountCredentials());
+    }
+
+    @Test
+    public void testHttpClient() {
+        assertNotNull("The CloseableHttpClient should not be null, ", account.getHttpClient());
     }
 
 }
