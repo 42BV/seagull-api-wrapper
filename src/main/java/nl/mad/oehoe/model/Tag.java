@@ -1,10 +1,13 @@
 package nl.mad.oehoe.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Tag can be used to give some additional information about a contact.
  * @author Ruben Zorgman
  */
 public class Tag {
+    @JsonProperty("TAG_NAME")
     private String tagName;
 
     public String getTagName() {

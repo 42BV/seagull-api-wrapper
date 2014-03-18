@@ -33,6 +33,10 @@ public class Account {
         return new ContactsCommandFactoryImpl(this);
     }
 
+    public void setHttpClient(CloseableHttpClient httpClient) {
+        this.httpClient = httpClient;
+    }
+
     /**
      * Gets the HttpClient if one exists, else it will make a new one.
      * @return The httpClient.

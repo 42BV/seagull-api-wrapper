@@ -2,7 +2,6 @@ package nl.mad.oehoe.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import nl.mad.oehoe.model.AccountCredentials;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +17,7 @@ public class AccountCredentialsTest {
 
     @Before
     public void setup() {
-        accountCredentials = new AccountCredentials("test123");
+        accountCredentials = new AccountCredentials("test123", "https://api.insight.ly/v2.1/");
         assertNotNull("Account credentials should not be null, ", accountCredentials);
     }
 

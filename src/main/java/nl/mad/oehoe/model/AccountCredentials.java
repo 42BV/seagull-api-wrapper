@@ -1,6 +1,5 @@
 package nl.mad.oehoe.model;
 
-
 import org.apache.commons.codec.binary.Base64;
 
 /**
@@ -11,19 +10,20 @@ import org.apache.commons.codec.binary.Base64;
  */
 public class AccountCredentials {
 
-    private static final String URL = "https://api.insight.ly/v2.1/";
+    private final String url;
     private final String apiKey;
 
     /**
      * Creates an instance of AccountCredentials with a URL and API authentication key.
      * @param apiKey The API authentication key.
      */
-    public AccountCredentials(String apiKey) {
+    public AccountCredentials(String apiKey, String url) {
         this.apiKey = apiKey;
+        this.url = url;
     }
 
     public String getUrl() {
-        return URL;
+        return url;
     }
 
     public String getApiKey() {

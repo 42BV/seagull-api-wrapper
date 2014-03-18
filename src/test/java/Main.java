@@ -18,7 +18,7 @@ public final class Main {
 
         long start = System.currentTimeMillis();
 
-        Account account = new Account(new AccountCredentials("b1b4fe31-a5f3-4261-a6cf-3ef87cf02102"));
+        Account account = new Account(new AccountCredentials("b1b4fe31-a5f3-4261-a6cf-3ef87cf02102", "https://api.insight.ly/v2.1/"));
 
         Contact contact = new Contact();
         contact.setFirstName("Jan");

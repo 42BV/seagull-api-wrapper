@@ -17,7 +17,7 @@ public class AccountTest {
 
     @Before
     public void setup() {
-        accountCredentials = new AccountCredentials("Key");
+        accountCredentials = new AccountCredentials("Key", "https://api.insight.ly/v2.1/");
         account = new Account(accountCredentials);
     }
 
