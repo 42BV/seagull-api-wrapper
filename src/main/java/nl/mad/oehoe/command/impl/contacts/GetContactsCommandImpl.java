@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import nl.mad.oehoe.command.base.contacts.GetContactsCommand;
+import nl.mad.oehoe.command.base.contact.GetContactsCommand;
 import nl.mad.oehoe.command.impl.AbstractGetCommand;
 import nl.mad.oehoe.header.AcceptHeader;
 import nl.mad.oehoe.header.AuthorizationHeader;

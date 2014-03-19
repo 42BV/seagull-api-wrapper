@@ -25,27 +25,24 @@ public final class Main {
 
         Account account = new Account(new AccountCredentials(args[0], "https://api.insight.ly/v2.1/"));
 
+        //Contact contact = new Contact();
+        //contact.setFirstName("Henk");
+        //contact.setLastName("tenk");
+        //contact.setContactId(52272486);
+
         //account.getContactsCommandFactory().createDeleteContactsCommand(54946439).call();
 
         //account.getContactsCommandFactory().createPostContactsCommand(createContact()).call();
 
+        //account.getContactsCommandFactory().createPutContactsCommand(contact).call();
+
         List<Contact> contactList = account.getContactsCommandFactory().createGetContactsCommand().call();
-        printList(contactList);
+        System.out.println("Number of contacts: " + contactList.size());
 
         //findContact(contactList, account);
 
         long stop = System.currentTimeMillis();
         System.out.println("Time it took: " + (stop - start));
-    }
-
-    /**
-     * Prints a list of contacts.
-     * @param contactList
-     */
-    public static void printList(List<Contact> contactList) {
-        for (Contact o : contactList) {
-            System.out.println(o.toString());
-        }
     }
 
     public static void findContact(List<Contact> list, Account account) {

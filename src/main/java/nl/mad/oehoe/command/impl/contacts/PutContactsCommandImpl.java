@@ -2,7 +2,7 @@ package nl.mad.oehoe.command.impl.contacts;
 
 import java.util.List;
 
-import nl.mad.oehoe.command.base.contacts.PutContactsCommand;
+import nl.mad.oehoe.command.base.contact.PutContactsCommand;
 import nl.mad.oehoe.header.AuthorizationHeader;
 import nl.mad.oehoe.header.ContentTypeHeader;
 import nl.mad.oehoe.model.Account;

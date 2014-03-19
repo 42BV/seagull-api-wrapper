@@ -6,8 +6,6 @@ import static org.junit.Assert.assertTrue;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.List;
 
 import mockit.Injectable;
 import mockit.NonStrictExpectations;
@@ -81,12 +79,10 @@ public abstract class BaseCommandTest {
     
     protected void verifyHeader(final String headerName, final String expectedValue) throws IOException{
         new Verifications(){{
-            List<HttpRequestBase> requests = new ArrayList<HttpRequestBase>();
-            httpClient.execute(withCapture(requests));
-            for (HttpRequestBase request : requests) {
-                assertEquals("The header value is not the same, ", expectedValue, request.getFirstHeader(headerName).getValue());
-                assertEquals("The header name is not the same, ", headerName, request.getFirstHeader(headerName).getName());
-            }
+            HttpRequestBase request;
+            httpClient.execute(request = withCapture());
+            assertEquals("The header value is not the same, ", expectedValue, request.getFirstHeader(headerName).getValue());
+            assertEquals("The header name is not the same, ", headerName, request.getFirstHeader(headerName).getName());
         }
         };
     }
@@ -119,7 +115,6 @@ public abstract class BaseCommandTest {
             httpClient.execute(request = withCapture());
             String content = convertInputStreamToString(request.getEntity().getContent());
             for(String string: expectedValues){
-                System.out.println(string);
                 assertTrue("The content does not contain the expected values, ", (content.contains(string)));
             }
         }

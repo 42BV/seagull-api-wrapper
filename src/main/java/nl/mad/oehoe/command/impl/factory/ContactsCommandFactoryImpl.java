@@ -1,9 +1,9 @@
 package nl.mad.oehoe.command.impl.factory;
 
-import nl.mad.oehoe.command.base.contacts.DeleteContactsCommand;
-import nl.mad.oehoe.command.base.contacts.GetContactsCommand;
-import nl.mad.oehoe.command.base.contacts.PostContactsCommand;
-import nl.mad.oehoe.command.base.contacts.PutContactsCommand;
+import nl.mad.oehoe.command.base.contact.DeleteContactsCommand;
+import nl.mad.oehoe.command.base.contact.GetContactsCommand;
+import nl.mad.oehoe.command.base.contact.PostContactsCommand;
+import nl.mad.oehoe.command.base.contact.PutContactsCommand;
 import nl.mad.oehoe.command.base.factory.ContactsCommandFactory;
 import nl.mad.oehoe.command.impl.contacts.DeleteContactsCommandImpl;
 import nl.mad.oehoe.command.impl.contacts.GetContactsCommandImpl;

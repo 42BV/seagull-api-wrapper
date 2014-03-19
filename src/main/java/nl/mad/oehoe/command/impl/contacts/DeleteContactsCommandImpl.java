@@ -1,6 +1,6 @@
 package nl.mad.oehoe.command.impl.contacts;
 
-import nl.mad.oehoe.command.base.contacts.DeleteContactsCommand;
+import nl.mad.oehoe.command.base.contact.DeleteContactsCommand;
 import nl.mad.oehoe.command.impl.AbstractCommand;
 import nl.mad.oehoe.header.AuthorizationHeader;
 import nl.mad.oehoe.model.Account;
