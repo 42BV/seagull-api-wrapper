@@ -10,8 +10,8 @@ import java.io.StringWriter;
 import mockit.Injectable;
 import mockit.NonStrictExpectations;
 import mockit.Verifications;
-import nl.mad.oehoe.model.Account;
-import nl.mad.oehoe.model.AccountCredentials;
+import nl.mad.model.Account;
+import nl.mad.model.AccountCredentials;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;

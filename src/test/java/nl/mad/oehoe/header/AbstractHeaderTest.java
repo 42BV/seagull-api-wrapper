@@ -2,6 +2,7 @@ package nl.mad.oehoe.header;
 
 import mockit.Mocked;
 import mockit.Verifications;
+import nl.mad.header.AbstractHeader;
 
 import org.apache.http.client.methods.HttpRequestBase;
 

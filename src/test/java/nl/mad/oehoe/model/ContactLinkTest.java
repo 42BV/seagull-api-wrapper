@@ -1,6 +1,7 @@
 package nl.mad.oehoe.model;
 
 import static org.junit.Assert.assertEquals;
+import nl.mad.model.ContactLink;
 
 import org.junit.Test;
 

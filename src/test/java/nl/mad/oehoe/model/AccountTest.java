@@ -1,6 +1,8 @@
 package nl.mad.oehoe.model;
 
 import static org.junit.Assert.assertNotNull;
+import nl.mad.model.Account;
+import nl.mad.model.AccountCredentials;
 
 import org.junit.Before;
 import org.junit.Test;

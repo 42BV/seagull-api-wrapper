@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import nl.mad.oehoe.model.Account;
-import nl.mad.oehoe.model.AccountCredentials;
-import nl.mad.oehoe.model.Address;
-import nl.mad.oehoe.model.Contact;
-import nl.mad.oehoe.model.ContactInfo;
-import nl.mad.oehoe.model.ContactLink;
-import nl.mad.oehoe.model.Tag;
+import nl.mad.model.Account;
+import nl.mad.model.AccountCredentials;
+import nl.mad.model.Address;
+import nl.mad.model.Contact;
+import nl.mad.model.ContactInfo;
+import nl.mad.model.ContactLink;
+import nl.mad.model.Tag;
 
 public final class Main {
 

@@ -6,6 +6,13 @@ import static org.junit.Assert.assertNotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+import nl.mad.model.Address;
+import nl.mad.model.Contact;
+import nl.mad.model.ContactInfo;
+import nl.mad.model.ContactLink;
+import nl.mad.model.CustomField;
+import nl.mad.model.Tag;
+
 import org.junit.Test;
 
 public class ContactTest {
