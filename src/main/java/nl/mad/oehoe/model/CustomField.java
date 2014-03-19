@@ -28,9 +28,4 @@ public class CustomField {
         this.fieldValue = fieldValue;
     }
 
-    @Override
-    public String toString() {
-        return "CustomField [customFieldId=" + customFieldId + ", fieldValue=" + fieldValue + "]";
-    }
-
 }

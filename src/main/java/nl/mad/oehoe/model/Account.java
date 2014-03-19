@@ -16,6 +16,7 @@ public class Account {
 
     private AccountCredentials accountCredentials;
     private CloseableHttpClient httpClient;
+    private static final int MAX_CONNECTIONS = 100;
 
     /**
      * Creates a new instance of Account, along with the account credentials that are set by the user.
@@ -56,10 +57,9 @@ public class Account {
     }
 
     private PoolingHttpClientConnectionManager createConnectionManager() {
-        int maxConnections = 100;
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
-        connectionManager.setMaxTotal(maxConnections);
-        connectionManager.setDefaultMaxPerRoute(maxConnections);
+        connectionManager.setMaxTotal(MAX_CONNECTIONS);
+        connectionManager.setDefaultMaxPerRoute(MAX_CONNECTIONS);
         return connectionManager;
     }
 

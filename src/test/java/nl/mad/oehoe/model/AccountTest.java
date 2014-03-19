@@ -17,22 +17,22 @@ public class AccountTest {
 
     @Before
     public void setup() {
-        accountCredentials = new AccountCredentials("Key", "https://api.insight.ly/v2.1/");
+        accountCredentials = new AccountCredentials("Key", "https://test-url.com/");
         account = new Account(accountCredentials);
     }
 
     @Test
-    public void testContactsCommandFactory() {
+    public void contactsCommandFactoryTest() {
         assertNotNull("Contacts Command Factory should not be null, ", account.getContactsCommandFactory());
     }
 
     @Test
-    public void testAccountCredentials() {
+    public void accountCredentialsTest() {
         assertNotNull("Account credentials should not be null, ", account.getAccountCredentials());
     }
 
     @Test
-    public void testHttpClient() {
+    public void httpClientTest() {
         assertNotNull("The CloseableHttpClient should not be null, ", account.getHttpClient());
     }
 

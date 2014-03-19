@@ -58,9 +58,4 @@ public class ContactInfo {
         this.detail = detail;
     }
 
-    @Override
-    public String toString() {
-        return "ContactInfo [contactInfoId=" + contactInfoId + ", type=" + type + ", subType=" + subType + ", label=" + label + ", detail=" + detail + "]";
-    }
-
 }

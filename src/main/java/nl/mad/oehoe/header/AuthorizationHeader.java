@@ -12,7 +12,7 @@ public class AuthorizationHeader extends AbstractHeader {
     private String value;
 
     /**
-     * Creates an instance of AuthorizationHeader
+     * Creates an instance of AuthorizationHeader.
      * @param value The value for the AuthorizationHeader
      */
     public AuthorizationHeader(String value) {

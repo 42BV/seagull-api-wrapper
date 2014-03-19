@@ -18,9 +18,4 @@ public class Tag {
         this.tagName = tagName;
     }
 
-    @Override
-    public String toString() {
-        return "Tag [tagName=" + tagName + "]";
-    }
-
 }

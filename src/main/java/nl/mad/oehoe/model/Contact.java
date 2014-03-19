@@ -152,12 +152,4 @@ public class Contact {
         this.contactLinks = contactLinks;
     }
 
-    @Override
-    public String toString() {
-        return "Contact [contactId=" + contactId + ", salutation=" + salutation + ", firstName=" + firstName + ", lastName=" + lastName + ", backGround="
-                + backGround + ", imageUrl=" + imageUrl + ", defaultLinkedOrganisation=" + defaultLinkedOrganisation + ", dateCreatedUtc=" + dateCreatedUtc
-                + ", dateUpdatedUtc=" + dateUpdatedUtc + ", customFields=" + customFields + ", addresses=" + addresses + ", contactInfos=" + contactInfos
-                + ", tags=" + tags + ", contactLinks=" + contactLinks + "]";
-    }
-
 }

@@ -17,17 +17,17 @@ public class AccountCredentialsTest {
 
     @Before
     public void setup() {
-        accountCredentials = new AccountCredentials("test123", "https://api.insight.ly/v2.1/");
+        accountCredentials = new AccountCredentials("test123", "https://test-url.com/");
         assertNotNull("Account credentials should not be null, ", accountCredentials);
     }
 
     @Test
-    public void testUrl() {
-        assertEquals("The url is not set correctly, ", "https://api.insight.ly/v2.1/", accountCredentials.getUrl());
+    public void urlTest() {
+        assertEquals("The url is not set correctly, ", "https://test-url.com/", accountCredentials.getUrl());
     }
 
     @Test
-    public void testApiKey() {
+    public void apiKeyTest() {
         assertEquals("The API key is not set correctly, ", "test123", accountCredentials.getApiKey());
     }
 
@@ -36,7 +36,7 @@ public class AccountCredentialsTest {
      * It was online converted using the following website: http://www.base64decode.org/
      */
     @Test
-    public void testBase64Key() {
+    public void base64KeyTest() {
         String base64 = "dGVzdDEyMw==";
         assertEquals("The base64 key was not converted correctly, ", base64, accountCredentials.getBase64ApiKey());
 

@@ -28,7 +28,7 @@ public abstract class AbstractPostContactsCommand<M extends HttpEntityEnclosingR
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractPostContactsCommand.class);
 
     /**
-     * Creates an instance of AbstractPostContactsCommand
+     * Creates an instance of AbstractPostContactsCommand.
      * @param account The account
      * @param contact The contact
      */
@@ -70,6 +70,7 @@ public abstract class AbstractPostContactsCommand<M extends HttpEntityEnclosingR
         } catch (JsonProcessingException e) {
             LOGGER.error("Json processing exception, message: " + e.getLocalizedMessage());
         }
+
         return jsonString;
     }
 

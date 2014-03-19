@@ -58,10 +58,4 @@ public class ContactLink {
         this.details = details;
     }
 
-    @Override
-    public String toString() {
-        return "ContactLink [contactLinkId=" + contactLinkId + ", firstContactId=" + firstContactId + ", secondContactId=" + secondContactId
-                + ", relationshipId=" + relationshipId + ", details=" + details + "]";
-    }
-
 }
