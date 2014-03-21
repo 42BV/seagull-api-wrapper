@@ -6,3 +6,4 @@
  *
  */
 package nl.tweeenveertig.seagull.command.base;
+

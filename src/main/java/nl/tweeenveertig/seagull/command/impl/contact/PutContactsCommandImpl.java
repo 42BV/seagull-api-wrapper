@@ -11,7 +11,7 @@ import nl.tweeenveertig.seagull.model.Contact;
 import org.apache.http.client.methods.HttpPut;
 
 /**
- * PutContactsCommandImpl is the implementation class to update an existing contact
+ * PutContactsCommandImpl is the implementation class to update an existing contact.
  * @author Ruben Zorgman
  */
 public class PutContactsCommandImpl extends AbstractPostContactsCommand<HttpPut, Contact> implements PutContactsCommand {

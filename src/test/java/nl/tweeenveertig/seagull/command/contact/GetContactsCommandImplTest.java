@@ -54,12 +54,12 @@ public class GetContactsCommandImplTest extends BaseCommandTest {
     
 //    @Test
 //    public void createIOException(@Mocked(stubOutClassInitialization = false) EntityUtils unused) throws IOException{
-//        setStatusLineCode(200);
-//        loadJsonSample("json-test-sample.json");
 //        new Expectations() {
 //            {
-//                EntityUtils.toString((HttpEntity)any); result = new IOException(anyString);
+//                EntityUtils.toString((HttpEntity)any); result = new IOException();
+//                 
 //            }
-//        };    
+//        }; 
+//        account.getContactsCommandFactory().createGetContactsCommand().call();
 //    }
 }

@@ -16,6 +16,7 @@ public class AccountCredentials {
     /**
      * Creates an instance of AccountCredentials with a URL and API authentication key.
      * @param apiKey The API authentication key.
+     * @param url The URL for the Insightly API.
      */
     public AccountCredentials(String apiKey, String url) {
         this.apiKey = apiKey;

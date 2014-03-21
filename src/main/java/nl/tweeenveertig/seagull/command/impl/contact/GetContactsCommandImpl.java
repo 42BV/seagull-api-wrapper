@@ -59,8 +59,10 @@ public class GetContactsCommandImpl extends AbstractGetCommand<HttpGet, Contact>
         return new HttpGet(url);
     }
 
-    /* 
-     * @see nl.tweeenveertig.seagull.command.impl.AbstractCommand.
+    /**
+     * Gets the return object.
+     * @param response The HttpResponse
+     * @return List of Contacts
      */
     public List<Contact> getReturnObject(HttpResponse response) {
         return createObjectsList(createJsonString(response));
