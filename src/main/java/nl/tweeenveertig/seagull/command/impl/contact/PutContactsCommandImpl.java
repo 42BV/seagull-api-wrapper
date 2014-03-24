@@ -1,5 +1,7 @@
 package nl.tweeenveertig.seagull.command.impl.contact;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import nl.tweeenveertig.seagull.command.base.contact.PutContactsCommand;
@@ -9,12 +11,16 @@ import nl.tweeenveertig.seagull.model.Account;
 import nl.tweeenveertig.seagull.model.Contact;
 
 import org.apache.http.client.methods.HttpPut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * PutContactsCommandImpl is the implementation class to update an existing contact.
  * @author Ruben Zorgman
  */
 public class PutContactsCommandImpl extends AbstractPostContactsCommand<HttpPut, Contact> implements PutContactsCommand {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(PostContactsCommandImpl.class);
 
     /**
      * Creates an instance of PutContactsCommandImpl.
@@ -34,8 +40,13 @@ public class PutContactsCommandImpl extends AbstractPostContactsCommand<HttpPut,
 
     @Override
     public List<Contact> call() {
-        addDataToPostRequest();
-        return super.call();
+        try {
+            addDataToPostRequest();
+            return super.call();
+        } catch (IOException e) {
+            LOGGER.error("IO exception: failed to add data to the PUT request, message: " + e.getLocalizedMessage());
+        }
+        return new ArrayList<Contact>();
     }
 
 }

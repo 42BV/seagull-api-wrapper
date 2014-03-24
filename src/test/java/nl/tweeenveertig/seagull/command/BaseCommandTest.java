@@ -46,7 +46,7 @@ public abstract class BaseCommandTest {
         new NonStrictExpectations() {
             {
                 response.getEntity(); result = httpEntity;
-                statusLine.getStatusCode(); result = 200;
+
                 response.getStatusLine(); result = statusLine;
                 httpClient.execute((HttpRequestBase)any); result = response;
             }

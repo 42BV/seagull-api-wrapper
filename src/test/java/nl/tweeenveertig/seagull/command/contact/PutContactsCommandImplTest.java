@@ -1,10 +1,14 @@
 package nl.tweeenveertig.seagull.command.contact;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
+import mockit.Expectations;
+import mockit.Mocked;
 import nl.tweeenveertig.seagull.command.BaseCommandTest;
 import nl.tweeenveertig.seagull.model.Contact;
 
+import org.apache.http.entity.StringEntity;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -37,6 +41,19 @@ public class PutContactsCommandImplTest extends BaseCommandTest {
         verifyStatusLineCode(200);
         verifyHttpRequestMethod("PUT");
         verifyContent(new String[] { "Bert", "Henk", "special", "newimage" });
+    }
+
+    @Test
+    public void createUnsupportedEncodingException(@Mocked(stubOutClassInitialization = false) StringEntity unused) throws Exception {
+        new Expectations() {
+            {
+                new StringEntity(anyString);
+                result = new UnsupportedEncodingException();
+            }
+        };
+        setStatusLineCode(400);
+        account.getContactsCommandFactory().createPutContactsCommand(contact).call();
+        verifyStatusLineCode(400);
     }
 
 }

@@ -43,7 +43,6 @@ public class Account {
      * @return The httpClient.
      */
     public CloseableHttpClient getHttpClient() {
-
         if (httpClient == null) {
             return createHttpClient();
         } else {

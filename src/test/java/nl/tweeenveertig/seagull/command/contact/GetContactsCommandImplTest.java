@@ -6,9 +6,13 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.util.List;
 
+import mockit.Expectations;
+import mockit.Mocked;
 import nl.tweeenveertig.seagull.command.BaseCommandTest;
 import nl.tweeenveertig.seagull.model.Contact;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.util.EntityUtils;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -41,10 +45,6 @@ public class GetContactsCommandImplTest extends BaseCommandTest {
         assertEquals("The list size does not match, ", 3, contacts.size());
     }
 
-    /**
-     * This test causes an IOException when it is parsing json to a java object, because there is an error in the .json file.
-     * @throws IOException The exception
-     */
     @Test
     public void faultyGetAllContactsTest() throws IOException {
         setStatusLineCode(200);
@@ -52,14 +52,14 @@ public class GetContactsCommandImplTest extends BaseCommandTest {
         account.getContactsCommandFactory().createGetContactsCommand().call();
     }
     
-//    @Test
-//    public void createIOException(@Mocked(stubOutClassInitialization = false) EntityUtils unused) throws IOException{
-//        new Expectations() {
-//            {
-//                EntityUtils.toString((HttpEntity)any); result = new IOException();
-//                 
-//            }
-//        }; 
-//        account.getContactsCommandFactory().createGetContactsCommand().call();
-//    }
+    @Test
+    public void createIOException(@Mocked(stubOutClassInitialization = false) EntityUtils unused) throws IOException{
+        new Expectations() {
+            {
+                EntityUtils.toString((HttpEntity)any); result = new IOException();
+            }
+        }; 
+        setStatusLineCode(200);
+        account.getContactsCommandFactory().createGetContactsCommand().call();
+    }
 }

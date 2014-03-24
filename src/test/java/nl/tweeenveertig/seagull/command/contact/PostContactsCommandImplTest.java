@@ -5,12 +5,17 @@ import java.io.UnsupportedEncodingException;
 
 import mockit.Expectations;
 import mockit.Mocked;
+import mockit.NonStrictExpectations;
 import nl.tweeenveertig.seagull.command.BaseCommandTest;
 import nl.tweeenveertig.seagull.model.Contact;
 
 import org.apache.http.entity.StringEntity;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 //@formatter:off
 
@@ -52,18 +57,23 @@ public class PostContactsCommandImplTest extends BaseCommandTest {
                 result = new UnsupportedEncodingException();
             }
         };
+        setStatusLineCode(400);
         account.getContactsCommandFactory().createPostContactsCommand(contact).call();
+        verifyStatusLineCode(400);
     }
     
-//    @Test
-//    public void createJsonProcessingException(@Mocked(stubOutClassInitialization = false) final ObjectWriter unused) throws JsonProcessingException{
-//        new Expectations() {
-//            {
-//                new PostContactsCommandImpl(account, contact).createObjectMapper();
-//                result = new JsonGenerationException("Test"); 
-//            }
-//        };
-//        account.getContactsCommandFactory().createPostContactsCommand(contact).call();
-//    }
+    @Test
+    public void createJsonProcessingException(@Mocked(stubOutClassInitialization = false) final ObjectMapper objectMapper) throws IOException{
+        new NonStrictExpectations() {
+            ObjectWriter objectWriter;
+            {
+                objectMapper.writer(); result = objectWriter;
+                objectWriter.writeValueAsString(any); result = new JsonGenerationException("Test");
+            }
+        };
+        setStatusLineCode(400);
+        account.getContactsCommandFactory().createPostContactsCommand(contact).call();
+        verifyStatusLineCode(400);
+    }
     
 }

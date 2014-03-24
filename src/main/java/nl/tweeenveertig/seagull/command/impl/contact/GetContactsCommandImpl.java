@@ -2,6 +2,7 @@ package nl.tweeenveertig.seagull.command.impl.contact;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import nl.tweeenveertig.seagull.command.base.contact.GetContactsCommand;
@@ -49,7 +50,7 @@ public class GetContactsCommandImpl extends AbstractGetCommand<HttpGet, Contact>
         try {
             contacts = createObjectMapper().readValue(jsonString, type);
         } catch (IOException e) {
-            LOGGER.error("IO exception, message: " + e.getLocalizedMessage());
+            LOGGER.error("IO exception: could convert JSON data to java object: " + e.getLocalizedMessage());
         }
         return contacts;
     }
@@ -60,11 +61,17 @@ public class GetContactsCommandImpl extends AbstractGetCommand<HttpGet, Contact>
     }
 
     /**
-     * Gets the return object.
+     * Gets the return object. If an error occurs, the method will return an empty list.
      * @param response The HttpResponse
      * @return List of Contacts
      */
     public List<Contact> getReturnObject(HttpResponse response) {
-        return createObjectsList(createJsonString(response));
+        try {
+            return createObjectsList(createJsonString(response));
+        } catch (IOException e) {
+            LOGGER.error("IO exception: could not convert EntityUtils to String with JSON data, message: " + e.getLocalizedMessage());
+            List<Contact> emptyList = Collections.emptyList();
+            return emptyList;
+        }
     }
 }

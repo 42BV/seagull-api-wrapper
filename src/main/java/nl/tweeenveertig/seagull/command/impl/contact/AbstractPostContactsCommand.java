@@ -1,5 +1,6 @@
 package nl.tweeenveertig.seagull.command.impl.contact;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import nl.tweeenveertig.seagull.command.impl.AbstractCommand;
@@ -11,6 +12,7 @@ import org.apache.http.entity.StringEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
@@ -46,31 +48,38 @@ public abstract class AbstractPostContactsCommand<M extends HttpEntityEnclosingR
     /**
      * Creates a StringEntity that can be set as an entity to the corresponding HttpRequest.
      * The StringEntity contains a JSON string with the converted java objects.
+     * @throws UnsupportedEncodingException 
+     * @throws  
+     * @throws JsonProcessingException 
      */
-    public void addDataToPostRequest() {
+    public void addDataToPostRequest() throws IOException {
         StringEntity stringEntity = null;
         try {
             stringEntity = new StringEntity(convertObjectToJsonString());
+            getRequestBase().setEntity(stringEntity);
         } catch (UnsupportedEncodingException e) {
             LOGGER.error("Unsupported encoding exception, message: " + e.getLocalizedMessage());
+            throw new UnsupportedEncodingException();
+        } catch (JsonGenerationException e) {
+            LOGGER.error("Json Generation Exception: could not convert from java object to JSON, message: " + e.getLocalizedMessage());
+            throw new JsonGenerationException(e);
         }
-        getRequestBase().setEntity(stringEntity);
     }
 
     /**
      * Converts a java object to a JSON string.
      * @return The String with the JSON
+     * @throws IOException 
      */
-    public String convertObjectToJsonString() {
+    public String convertObjectToJsonString() throws JsonGenerationException {
         ObjectWriter writer = createObjectMapper().writer();
         String jsonString = null;
         try {
 
             jsonString = writer.writeValueAsString(contact);
         } catch (JsonProcessingException e) {
-            LOGGER.error("Json processing exception, message: " + e.getLocalizedMessage());
+            throw new JsonGenerationException(e);
         }
-
         return jsonString;
     }
 

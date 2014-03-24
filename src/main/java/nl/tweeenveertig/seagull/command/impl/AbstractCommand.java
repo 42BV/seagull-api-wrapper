@@ -1,6 +1,7 @@
 package nl.tweeenveertig.seagull.command.impl;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -45,7 +46,7 @@ public abstract class AbstractCommand<M extends HttpRequestBase, N> implements C
     }
 
     /** 
-     * Call executes the HttpRequest.
+     * Call executes the HTTP Request. If something went wrong while executing the HTTP request, the method returns an empty list.
      * @return List<N> A list of objects
      */
     public List<N> call() {
@@ -54,10 +55,12 @@ public abstract class AbstractCommand<M extends HttpRequestBase, N> implements C
             response = account.getHttpClient().execute(request);
             LOGGER.info("Request:" + request.getRequestLine());
             LOGGER.info("Statusline code: " + response.getStatusLine().getStatusCode());
+            return getReturnObject(response);
         } catch (IOException e) {
-            LOGGER.error("IO exception, message: " + e.getLocalizedMessage());
+            LOGGER.error("IO exception: could not execute HTTP request, message: " + e.getLocalizedMessage());
+            List<N> emptyList = Collections.emptyList();
+            return emptyList;
         }
-        return getReturnObject(response);
     }
 
     /**
