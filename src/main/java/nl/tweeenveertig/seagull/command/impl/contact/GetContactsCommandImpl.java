@@ -70,8 +70,7 @@ public class GetContactsCommandImpl extends AbstractGetCommand<HttpGet, Contact>
             return createObjectsList(createJsonString(response));
         } catch (IOException e) {
             LOGGER.error("IO exception: could not convert EntityUtils to String with JSON data, message: " + e.getLocalizedMessage());
-            List<Contact> emptyList = Collections.emptyList();
-            return emptyList;
+            return Collections.<Contact> emptyList();
         }
     }
 }

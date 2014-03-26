@@ -58,8 +58,7 @@ public abstract class AbstractCommand<M extends HttpRequestBase, N> implements C
             return getReturnObject(response);
         } catch (IOException e) {
             LOGGER.error("IO exception: could not execute HTTP request, message: " + e.getLocalizedMessage());
-            List<N> emptyList = Collections.emptyList();
-            return emptyList;
+            return Collections.<N> emptyList();
         }
     }
 
