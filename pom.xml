@@ -18,7 +18,7 @@
         <slf4j.version>1.7.6</slf4j.version>
         <commons-codec.version>1.2</commons-codec.version>
         <junit.version>4.11</junit.version>
-        <java.version> 1.7</java.version>
+        <java.version>1.7</java.version>
         <jmockit.version>1.6</jmockit.version>
         <commons-io.version>1.3.2</commons-io.version>
     </properties>
@@ -106,5 +106,27 @@
         </dependency>
 
      </dependencies>
+     
+        <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+                <!-- When deploying activate the "sonatype-oss-release" profile -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.6</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
         
 </project>
