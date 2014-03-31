@@ -1,5 +1,6 @@
 import java.util.List;
 
+import nl.tweeenveertig.seagull.Insightly;
 import nl.tweeenveertig.seagull.model.Contact;
 
 public class Main {

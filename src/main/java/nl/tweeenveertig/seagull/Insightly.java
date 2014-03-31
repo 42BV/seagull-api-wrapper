@@ -1,3 +1,4 @@
+package nl.tweeenveertig.seagull;
 import java.util.List;
 
 import nl.tweeenveertig.seagull.model.Account;

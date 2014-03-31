@@ -48,9 +48,7 @@ public abstract class AbstractPostContactsCommand<M extends HttpEntityEnclosingR
     /**
      * Creates a StringEntity that can be set as an entity to the corresponding HttpRequest.
      * The StringEntity contains a JSON string with the converted java objects.
-     * @throws UnsupportedEncodingException 
-     * @throws  
-     * @throws JsonProcessingException 
+     * @throws IOException 
      */
     public void addDataToPostRequest() throws IOException {
         StringEntity stringEntity = null;
@@ -69,7 +67,7 @@ public abstract class AbstractPostContactsCommand<M extends HttpEntityEnclosingR
     /**
      * Converts a java object to a JSON string.
      * @return The String with the JSON
-     * @throws IOException 
+     * @throws JsonGenerationException 
      */
     public String convertObjectToJsonString() throws JsonGenerationException {
         ObjectWriter writer = createObjectMapper().writer();
