@@ -7,11 +7,16 @@ perform CRUD methods on entities, such as contacts, or organisations.
 Getting started
 --------------
 
-The first two things that needed are the user's Insightly API key and the Insightly API URL.
-Once these are known, an Insightly object has to be created:
+To use the API Wrapper, you will need an Insightly API key. Calls are made to: https://api.insight.ly/v2.1/ by default.
+Use this API key when creating an Insightly object: 
 
 ```java
-    Insightly insightly = new Insightly("yourApiKey", "theApiUrl");
+    Insightly insightly = new Insightly("yourAPIKey");
+```
+
+If the URL for the Insightly API is outdated, you can use this constructor to provide a URL:
+```java
+    Insightly insightly = new Insightly("yourAPIKey", "theAPIUrl");
 ```
 
 When an Insightly object is created, the user can start using the Seagull API Wrapper.

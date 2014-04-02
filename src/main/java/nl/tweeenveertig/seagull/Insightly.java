@@ -1,4 +1,5 @@
 package nl.tweeenveertig.seagull;
+
 import java.util.List;
 
 import nl.tweeenveertig.seagull.model.Account;
@@ -15,9 +16,20 @@ import nl.tweeenveertig.seagull.model.Contact;
 public class Insightly {
 
     private Account account;
+    private static final String URL = "https://api.insight.ly/v2.1/";
 
     /**
-     * Creates an instance of Insightly.
+     * Creates an instance of Insightly, with only the API key as parameter.
+     * It will use the v2.1 URL for the Insightly API. If this is outdated,
+     * use the constructor where you can set the URL.
+     * @param apiKey The Insightly API Key
+     */
+    public Insightly(String apiKey) {
+        account = new Account(new AccountCredentials(apiKey, URL));
+    }
+
+    /**
+     * Creates an instance of Insightly, which takes two arguments.
      * @param apiKey The Insightly API Key
      * @param url The URL for the Insightly API
      */

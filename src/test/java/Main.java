@@ -14,7 +14,7 @@ public class Main {
         //contact.setLastName("tenk");
         //contact.setContactId(52272486);
 
-        Insightly insightly = new Insightly(args[0], "https://api.insight.ly/v2.1/");
+        Insightly insightly = new Insightly(args[0]);
         //insightly.createContact(contact);
 
         List<Contact> contactList = insightly.getContacts();
