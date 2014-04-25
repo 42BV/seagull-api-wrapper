@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
  */
 public class PutContactsCommandImpl extends AbstractPostContactsCommand<HttpPut, Contact> implements PutContactsCommand {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(PostContactsCommandImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PutContactsCommandImpl.class);
 
     /**
      * Creates an instance of PutContactsCommandImpl.

@@ -16,7 +16,7 @@ import nl.tweeenveertig.seagull.model.Contact;
 public class Insightly {
 
     private Account account;
-    private static final String URL = "https://api.insight.ly/v2.1/";
+    private static final String URL = "https://api.insight.ly/v2.1";
 
     /**
      * Creates an instance of Insightly, with only the API key as parameter.

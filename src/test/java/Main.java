@@ -9,15 +9,10 @@ public class Main {
 
         long start = System.currentTimeMillis();
 
-        Contact contact = new Contact();
-        //contact.setFirstName("Jan");
-        //contact.setLastName("tenk");
-        //contact.setContactId(52272486);
-
         Insightly insightly = new Insightly(args[0]);
-        //insightly.createContact(contact);
 
         List<Contact> contactList = insightly.getContacts();
+
         System.out.println("Number of contacts: " + contactList.size());
 
         long stop = System.currentTimeMillis();
