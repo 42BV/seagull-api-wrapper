@@ -41,7 +41,7 @@ public class PostOrganisationsCommandImpl extends AbstractPostOrganisationsComma
     @Override
     public List<Organisation> call() {
         try {
-            addDataToPostRequest();
+            addDataToEnclosingRequest();
             return super.call();
         } catch (IOException e) {
             LOGGER.error("IO exception: failed to add data to the POST request, message: " + e.getLocalizedMessage());

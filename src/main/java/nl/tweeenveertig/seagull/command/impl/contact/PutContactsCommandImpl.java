@@ -41,7 +41,7 @@ public class PutContactsCommandImpl extends AbstractPostContactsCommand<HttpPut,
     @Override
     public List<Contact> call() {
         try {
-            addDataToPostRequest();
+            addDataToEnclosingRequest();
             return super.call();
         } catch (IOException e) {
             LOGGER.error("IO exception: failed to add data to the PUT request, message: " + e.getLocalizedMessage());

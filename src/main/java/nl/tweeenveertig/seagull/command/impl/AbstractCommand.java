@@ -34,6 +34,9 @@ public abstract class AbstractCommand<M extends HttpRequestBase, N> implements C
      * String that is used to append to the URL.
      */
     protected static final String CONTACTS_URL_STRING = "/Contacts";
+    /**
+     * String that is used to append to the URL.
+     */
     protected static final String ORGANISATIONS_URL_STRING = "/Organisations";
 
     /**

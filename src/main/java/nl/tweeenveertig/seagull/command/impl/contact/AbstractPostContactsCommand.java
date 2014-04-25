@@ -50,7 +50,7 @@ public abstract class AbstractPostContactsCommand<M extends HttpEntityEnclosingR
      * The StringEntity contains a JSON string with the converted java objects.
      * @throws IOException 
      */
-    public void addDataToPostRequest() throws IOException {
+    public void addDataToEnclosingRequest() throws IOException {
         StringEntity stringEntity = null;
         try {
             stringEntity = new StringEntity(convertObjectToJsonString());

@@ -50,7 +50,7 @@ public class GetOrganisationsCommandImpl extends AbstractGetCommand<HttpGet, Org
         try {
             organisations = createObjectMapper().readValue(jsonString, type);
         } catch (IOException e) {
-            LOGGER.error("IO exception: could convert JSON data to java object: " + e.getLocalizedMessage());
+            LOGGER.error("IO exception: could not convert JSON data to java object: " + e.getLocalizedMessage());
         }
         return organisations;
     }

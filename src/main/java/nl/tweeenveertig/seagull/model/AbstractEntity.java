@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * AbstactEntity has some shared attributes for Contact and Organisation
+ * @author Ruben Zorgman
+ */
 public class AbstractEntity {
 
     @JsonProperty("BACKGROUND")

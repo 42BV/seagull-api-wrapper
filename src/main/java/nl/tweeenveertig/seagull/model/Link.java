@@ -2,6 +2,10 @@ package nl.tweeenveertig.seagull.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Link is responsible for coupling an organisation with a contact.
+ * @author Ruben Zorgman
+ */
 public class Link {
 
     @JsonProperty("LINK_ID")

@@ -80,7 +80,7 @@ public class Insightly {
 
     /**
      * Updates an existing contact.
-     * @param contact The contact that is updated
+     * @param organisation The organisation that is updated
      */
     public void updateOrganisation(Organisation organisation) {
         account.getOrganisationsCommandFactory().createPutOrganisationsCommand(organisation).call();
@@ -88,7 +88,7 @@ public class Insightly {
 
     /**
      * Creates a contact.
-     * @param contact The contact that is created
+     * @param organisation The organisation that is created
      */
     public void createOrganisation(Organisation organisation) {
         account.getOrganisationsCommandFactory().createPostOrganisationsCommand(organisation).call();
