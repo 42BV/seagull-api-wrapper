@@ -6,13 +6,6 @@ import static org.junit.Assert.assertNotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import nl.tweeenveertig.seagull.model.Address;
-import nl.tweeenveertig.seagull.model.Contact;
-import nl.tweeenveertig.seagull.model.ContactInfo;
-import nl.tweeenveertig.seagull.model.ContactLink;
-import nl.tweeenveertig.seagull.model.CustomField;
-import nl.tweeenveertig.seagull.model.Tag;
-
 import org.junit.Test;
 
 public class ContactTest {
@@ -23,8 +16,6 @@ public class ContactTest {
 
         List<ContactInfo> contactInfos = new ArrayList<ContactInfo>();
 
-        List<ContactLink> contactLinks = new ArrayList<ContactLink>();
-
         List<CustomField> customFields = new ArrayList<CustomField>();
 
         List<Tag> tags = new ArrayList<Tag>();
@@ -34,7 +25,6 @@ public class ContactTest {
         contact.setBackGround("Background");
         contact.setContactId(0);
         contact.setContactInfos(contactInfos);
-        contact.setContactLinks(contactLinks);
         contact.setCustomFields(customFields);
         contact.setDateCreatedUtc("01-01-2011");
         contact.setDateUpdatedUtc("01-01-2011");
@@ -49,7 +39,6 @@ public class ContactTest {
         assertEquals("Background is not the same, ", "Background", contact.getBackGround());
         assertEquals("Id is not the same, ", 0, contact.getContactId());
         assertNotNull("ContactInfo should not be null, ", contact.getContactInfos());
-        assertNotNull("ContactLink should not be null, ", contact.getContactLinks());
         assertNotNull("CustomField should not be null, ", contact.getCustomFields());
         assertEquals("Date created is not the same, ", "01-01-2011", contact.getDateCreatedUtc());
         assertEquals("Date updated is not the same, ", "01-01-2011", contact.getDateUpdatedUtc());

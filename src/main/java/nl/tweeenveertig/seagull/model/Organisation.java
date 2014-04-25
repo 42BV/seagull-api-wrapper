@@ -5,14 +5,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Organisation extends AbstractEntity {
-    
+
     @JsonProperty("ORGANISATION_ID")
     private int organisationId;
-    
+
     @JsonProperty("ORGANISATION_NAME")
     private int organisationName;
-        
-    @JsonProperty("")
-    private int
 
 }

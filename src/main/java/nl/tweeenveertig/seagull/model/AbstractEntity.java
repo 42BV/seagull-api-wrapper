@@ -22,6 +22,8 @@ public class AbstractEntity {
     private List<ContactInfo> contactInfos;
     @JsonProperty("TAGS")
     private List<Tag> tags;
+    @JsonProperty("LINKS")
+    private List<Link> links;
 
     public String getBackGround() {
         return backGround;
@@ -85,6 +87,14 @@ public class AbstractEntity {
 
     public void setTags(List<Tag> tags) {
         this.tags = tags;
+    }
+
+    public List<Link> getLinks() {
+        return links;
+    }
+
+    public void setLinks(List<Link> links) {
+        this.links = links;
     }
 
 }

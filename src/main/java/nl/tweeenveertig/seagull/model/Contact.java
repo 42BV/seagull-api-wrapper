@@ -1,7 +1,5 @@
 package nl.tweeenveertig.seagull.model;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -22,9 +20,6 @@ public class Contact extends AbstractEntity {
 
     @JsonProperty("DEFAULT_LINKED_ORGANISATION")
     private int defaultLinkedOrganisation;
-
-    @JsonProperty("CONTACTLINKS")
-    private List<ContactLink> contactLinks;
 
     public int getContactId() {
         return contactId;
@@ -64,14 +59,6 @@ public class Contact extends AbstractEntity {
 
     public void setDefaultLinkedOrganisation(int defaultLinkedOrganisation) {
         this.defaultLinkedOrganisation = defaultLinkedOrganisation;
-    }
-
-    public List<ContactLink> getContactLinks() {
-        return contactLinks;
-    }
-
-    public void setContactLinks(List<ContactLink> contactLinks) {
-        this.contactLinks = contactLinks;
     }
 
 }
