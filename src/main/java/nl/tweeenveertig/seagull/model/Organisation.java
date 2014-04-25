@@ -10,6 +10,6 @@ public class Organisation extends AbstractEntity {
     private int organisationId;
 
     @JsonProperty("ORGANISATION_NAME")
-    private int organisationName;
+    private String organisationName;
 
 }

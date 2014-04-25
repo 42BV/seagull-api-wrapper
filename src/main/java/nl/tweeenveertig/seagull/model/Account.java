@@ -1,7 +1,9 @@
 package nl.tweeenveertig.seagull.model;
 
 import nl.tweeenveertig.seagull.command.base.factory.ContactsCommandFactory;
+import nl.tweeenveertig.seagull.command.base.factory.OrganisationsCommandFactory;
 import nl.tweeenveertig.seagull.command.impl.factory.ContactsCommandFactoryImpl;
+import nl.tweeenveertig.seagull.command.impl.factory.OrganisationsCommandFactoryImpl;
 
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -32,6 +34,10 @@ public class Account {
 
     public ContactsCommandFactory getContactsCommandFactory() {
         return new ContactsCommandFactoryImpl(this);
+    }
+
+    public OrganisationsCommandFactory getOrganisationsCommandFactory() {
+        return new OrganisationsCommandFactoryImpl(this);
     }
 
     public void setHttpClient(CloseableHttpClient httpClient) {

@@ -5,6 +5,7 @@ import java.util.List;
 import nl.tweeenveertig.seagull.model.Account;
 import nl.tweeenveertig.seagull.model.AccountCredentials;
 import nl.tweeenveertig.seagull.model.Contact;
+import nl.tweeenveertig.seagull.model.Organisation;
 
 /**
  * Insightly class contains all the methods that a user needs in order to do CRUD operations
@@ -67,6 +68,38 @@ public class Insightly {
      */
     public List<Contact> getContacts() {
         return account.getContactsCommandFactory().createGetContactsCommand().call();
+    }
+
+    /**
+     * Deletes an organisation, by using the organisation's id.
+     * @param id The organisation's id.
+     */
+    public void deleteOrganisation(int id) {
+        account.getOrganisationsCommandFactory().createDeleteOrganisationsCommand(id).call();
+    }
+
+    /**
+     * Updates an existing contact.
+     * @param contact The contact that is updated
+     */
+    public void updateOrganisation(Organisation organisation) {
+        account.getOrganisationsCommandFactory().createPutOrganisationsCommand(organisation).call();
+    }
+
+    /**
+     * Creates a contact.
+     * @param contact The contact that is created
+     */
+    public void createOrganisation(Organisation organisation) {
+        account.getOrganisationsCommandFactory().createPostOrganisationsCommand(organisation).call();
+    }
+
+    /**
+     * Gets a list of contacts.
+     * @return List of contacts
+     */
+    public List<Organisation> getOrganisations() {
+        return account.getOrganisationsCommandFactory().createGetOrganisationsCommand().call();
     }
 
 }
