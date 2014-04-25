@@ -41,7 +41,7 @@ public abstract class BaseCommandTest {
 
     @Before
     public void setup() throws IOException {
-        account = new Account(new AccountCredentials("key", "https://test-url.com/"));
+        account = new Account(new AccountCredentials("key", "https://test-url.com"));
         account.setHttpClient(httpClient);
         new NonStrictExpectations() {
             {
