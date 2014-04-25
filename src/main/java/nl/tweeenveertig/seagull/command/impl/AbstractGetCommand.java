@@ -10,7 +10,7 @@ import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.util.EntityUtils;
 
 /**
- * AbstractGetCommand is an abstract class that is used by all get commands, because they share the samen methods.
+ * AbstractGetCommand is an abstract class that is used by all get commands, because they share some methods.
  * @author Ruben Zorgman
  * @param <M> The HttpRequestBase
  * @param <N> The type parameter
