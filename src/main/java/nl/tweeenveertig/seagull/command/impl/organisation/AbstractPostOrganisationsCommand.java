@@ -5,8 +5,6 @@ import nl.tweeenveertig.seagull.model.Account;
 import nl.tweeenveertig.seagull.model.Organisation;
 
 import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -22,8 +20,6 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 public abstract class AbstractPostOrganisationsCommand<M extends HttpEntityEnclosingRequestBase, N> extends AbstractEnclosingRequest<M, N> {
 
     private Organisation organisation;
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractPostOrganisationsCommand.class);
 
     /**
      * Creates an instance of AbstractPostOrganisationsCommand.
