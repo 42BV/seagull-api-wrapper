@@ -41,7 +41,7 @@ public class PutOrganisationsCommandImpl extends AbstractPostOrganisationsComman
     @Override
     public List<Organisation> call() {
         try {
-            addDataToEnclosingRequest();
+            addDataToEnclosingRequest(convertObjectToJsonString());
             return super.call();
         } catch (IOException e) {
             LOGGER.error("IO exception: failed to add data to the PUT request, message: " + e.getLocalizedMessage());

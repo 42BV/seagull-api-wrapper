@@ -1,14 +1,10 @@
 package nl.tweeenveertig.seagull.command.impl.organisation;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-
-import nl.tweeenveertig.seagull.command.impl.AbstractCommand;
+import nl.tweeenveertig.seagull.command.impl.AbstractEnclosingRequest;
 import nl.tweeenveertig.seagull.model.Account;
 import nl.tweeenveertig.seagull.model.Organisation;
 
 import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
-import org.apache.http.entity.StringEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +19,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
  * @param <N> The generic object
  * @author Ruben Zorgman
  */
-public abstract class AbstractPostOrganisationsCommand<M extends HttpEntityEnclosingRequestBase, N> extends AbstractCommand<M, N> {
+public abstract class AbstractPostOrganisationsCommand<M extends HttpEntityEnclosingRequestBase, N> extends AbstractEnclosingRequest<M, N> {
 
     private Organisation organisation;
 
@@ -43,25 +39,6 @@ public abstract class AbstractPostOrganisationsCommand<M extends HttpEntityEnclo
     private static String modifyUrl(String url) {
         url += ORGANISATIONS_URL_STRING;
         return url;
-    }
-
-    /**
-     * Creates a StringEntity that can be set as an entity to the corresponding HttpRequest.
-     * The StringEntity contains a JSON string with the converted java objects.
-     * @throws IOException 
-     */
-    public void addDataToEnclosingRequest() throws IOException {
-        StringEntity stringEntity = null;
-        try {
-            stringEntity = new StringEntity(convertObjectToJsonString());
-            getRequestBase().setEntity(stringEntity);
-        } catch (UnsupportedEncodingException e) {
-            LOGGER.error("Unsupported encoding exception, message: " + e.getLocalizedMessage());
-            throw new UnsupportedEncodingException();
-        } catch (JsonGenerationException e) {
-            LOGGER.error("Json Generation Exception: could not convert from java object to JSON, message: " + e.getLocalizedMessage());
-            throw new JsonGenerationException(e);
-        }
     }
 
     /**
