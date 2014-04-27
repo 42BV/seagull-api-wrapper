@@ -1,13 +1,17 @@
 package nl.tweeenveertig.seagull.command.impl;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import nl.tweeenveertig.seagull.model.Account;
 
-import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpRequestBase;
-import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.fasterxml.jackson.databind.type.CollectionType;
 
 /**
  * AbstractGetCommand is an abstract class that is used by all get commands, because they share some methods.
@@ -16,6 +20,8 @@ import org.apache.http.util.EntityUtils;
  * @param <N> The type parameter
  */
 public abstract class AbstractGetCommand<M extends HttpRequestBase, N> extends AbstractCommand<M, N> {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractGetCommand.class);
 
     /**
      * Creates an instance of AbstractGetCommand.
@@ -27,26 +33,22 @@ public abstract class AbstractGetCommand<M extends HttpRequestBase, N> extends A
     }
 
     /**
-     * Creates a String with JSON data from an HttpResponse.
-     * @param response The HttpResponse
-     * @return The String with the JSON data
-     * @throws IOException 
+     * Generic method to convert JSON to Postduif objects. It uses the InputStream from a HttpResponse as input for
+     * Jackson.
+     * @param response The response
+     * @param type Generic type
+     * @return List of Objects
      */
-    public String createJsonString(HttpResponse response) throws IOException {
-        String jsonString = null;
+    public List<N> createObjectsList(CloseableHttpResponse response, Class<N> type) {
+        List<N> objectList = new ArrayList<N>();
         try {
-            jsonString = EntityUtils.toString(response.getEntity());
+            CollectionType collectionType = createObjectMapper().getTypeFactory().constructCollectionType(List.class, type);
+            objectList = createObjectMapper().readValue(response.getEntity().getContent(), collectionType);
+            response.getEntity().getContent().close();
         } catch (IOException e) {
-            throw new IOException(e);
+            LOGGER.error("IOException, message: " + e.getLocalizedMessage());
         }
-        return jsonString;
+        return objectList;
     }
-
-    /**
-     * Creates a list of objects, that are being converted from JSON to a java object, using Jackson.
-     * @param jsonString The String with the JSON data
-     * @return List of objects
-     */
-    public abstract List<N> createObjectsList(String jsonString);
 
 }

@@ -8,7 +8,6 @@ import java.util.concurrent.Callable;
 import nl.tweeenveertig.seagull.header.AbstractHeader;
 import nl.tweeenveertig.seagull.model.Account;
 
-import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.slf4j.Logger;
@@ -71,7 +70,7 @@ public abstract class AbstractCommand<M extends HttpRequestBase, N> implements C
      * @param httpResponse The HttpResponse
      * @return A list of objects
      */
-    public List<N> getReturnObject(HttpResponse httpResponse) {
+    public List<N> getReturnObject(CloseableHttpResponse httpResponse) {
         return null;
     }
 

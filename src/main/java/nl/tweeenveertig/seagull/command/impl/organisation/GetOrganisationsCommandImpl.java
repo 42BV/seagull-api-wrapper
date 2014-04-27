@@ -1,8 +1,5 @@
 package nl.tweeenveertig.seagull.command.impl.organisation;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import nl.tweeenveertig.seagull.command.base.organisation.GetOrganisationsCommand;
@@ -12,20 +9,14 @@ import nl.tweeenveertig.seagull.header.AuthorizationHeader;
 import nl.tweeenveertig.seagull.model.Account;
 import nl.tweeenveertig.seagull.model.Organisation;
 
-import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.fasterxml.jackson.databind.JavaType;
 
 /**
  * GetOrganisationsCommandImpl is the implementation class that retrieves all organisations.
  * @author Ruben Zorgman
  */
 public class GetOrganisationsCommandImpl extends AbstractGetCommand<HttpGet, Organisation> implements GetOrganisationsCommand {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(GetOrganisationsCommandImpl.class);
 
     /**
      * Creates an instance of GetOrganisationsCommandImpl.
@@ -44,18 +35,6 @@ public class GetOrganisationsCommandImpl extends AbstractGetCommand<HttpGet, Org
     }
 
     @Override
-    public List<Organisation> createObjectsList(String jsonString) {
-        JavaType type = createObjectMapper().getTypeFactory().constructCollectionType(List.class, Organisation.class);
-        List<Organisation> organisations = new ArrayList<Organisation>();
-        try {
-            organisations = createObjectMapper().readValue(jsonString, type);
-        } catch (IOException e) {
-            LOGGER.error("IO exception: could not convert JSON data to java object: " + e.getLocalizedMessage());
-        }
-        return organisations;
-    }
-
-    @Override
     protected HttpGet createRequest(String url) {
         return new HttpGet(url);
     }
@@ -65,13 +44,8 @@ public class GetOrganisationsCommandImpl extends AbstractGetCommand<HttpGet, Org
      * @param response The HttpResponse
      * @return List of Organisations
      */
-    public List<Organisation> getReturnObject(HttpResponse response) {
-        try {
-            return createObjectsList(createJsonString(response));
-        } catch (IOException e) {
-            LOGGER.error("IO exception: could not convert EntityUtils to String with JSON data, message: " + e.getLocalizedMessage());
-            return Collections.<Organisation> emptyList();
-        }
+    public List<Organisation> getReturnObject(CloseableHttpResponse response) {
+        return createObjectsList(response, Organisation.class);
     }
 
 }
