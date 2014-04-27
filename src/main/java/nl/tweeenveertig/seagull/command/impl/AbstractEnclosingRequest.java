@@ -21,6 +21,11 @@ public abstract class AbstractEnclosingRequest<M extends HttpEntityEnclosingRequ
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractEnclosingRequest.class);
 
+    /**
+     * Creates an instance of AbstractEnclosingRequest.
+     * @param account The account
+     * @param url The URL
+     */
     public AbstractEnclosingRequest(Account account, String url) {
         super(account, url);
     }
@@ -28,6 +33,7 @@ public abstract class AbstractEnclosingRequest<M extends HttpEntityEnclosingRequ
     /**
      * Creates a StringEntity that can be set as an entity to the corresponding HttpRequest.
      * The StringEntity contains a JSON string with the converted java objects.
+     * @param jsonData The String containing the JSON data
      * @throws IOException 
      */
     public void addDataToEnclosingRequest(String jsonData) throws IOException {

@@ -28,14 +28,14 @@ public interface OrganisationsCommandFactory {
 
     /**
      * Creates a command that deletes an existing organisation.
-     * @param organisation The organisation that has to be deleted
+     * @param id The id of the organisation that has to be deleted
      * @return The DeleteOrganisationsCommand
      */
     DeleteOrganisationsCommand createDeleteOrganisationsCommand(int id);
 
     /**
      * Creates a command that updates an existing organisation.
-     *  @param organisation The organisation that has to be updated
+     * @param organisation The organisation that has to be updated
      * @return The PutOrganisationsCommand
      */
     PutOrganisationsCommand createPutOrganisationsCommand(Organisation organisation);

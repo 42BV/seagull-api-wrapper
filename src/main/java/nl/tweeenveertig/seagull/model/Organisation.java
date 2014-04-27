@@ -3,6 +3,10 @@ package nl.tweeenveertig.seagull.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Contains the information about an organisation.
+ * @author Ruben Zorgman
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Organisation extends AbstractEntity {
 
