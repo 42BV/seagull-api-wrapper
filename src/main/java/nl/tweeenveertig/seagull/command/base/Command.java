@@ -11,5 +11,5 @@ public interface Command<N> {
     /**
      * @return List of objects
      */
-    List<N> call();
+    public List<N> call();
 }

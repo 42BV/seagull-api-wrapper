@@ -6,13 +6,9 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.util.List;
 
-import mockit.Expectations;
-import mockit.Mocked;
 import nl.tweeenveertig.seagull.command.BaseCommandTest;
 import nl.tweeenveertig.seagull.model.Contact;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.util.EntityUtils;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -51,16 +47,5 @@ public class GetContactsCommandImplTest extends BaseCommandTest {
         loadJsonSample("json-test-sample-faulty.json");
         account.getContactsCommandFactory().createGetContactsCommand().call();
     }
-    
-    @Test
-    public void createIOExceptionForEntityUtils(@Mocked(stubOutClassInitialization = false) EntityUtils unused) throws IOException{
-        new Expectations() {
-            {
-                EntityUtils.toString((HttpEntity)any); result = new IOException();
-            }
-        }; 
-        setStatusLineCode(200);
-        account.getContactsCommandFactory().createGetContactsCommand().call();
-    }
-        
+            
 }

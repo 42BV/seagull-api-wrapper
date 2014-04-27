@@ -17,27 +17,27 @@ public interface ContactsCommandFactory {
      * Creates a command that retrieves contacts.
      * @return The GetContactsCommand
      */
-    GetContactsCommand createGetContactsCommand();
+    public GetContactsCommand createGetContactsCommand();
 
     /**
      * Creates a command that creates a contact.
      * @param contact The contact that has to be created
      * @return The PostContactsCommand
      */
-    PostContactsCommand createPostContactsCommand(Contact contact);
+    public PostContactsCommand createPostContactsCommand(Contact contact);
 
     /**
      * Creates a command that deletes an existing contact.
      * @param id The id of the contact that has to be deleted
      * @return The DeleteContactsCommand
      */
-    DeleteContactsCommand createDeleteContactsCommand(int id);
+    public DeleteContactsCommand createDeleteContactsCommand(int id);
 
     /**
      * Creates a command that updates an existing contact.
      * @param contact The contact that has to be updated
      * @return The PutContactsCommand
      */
-    PutContactsCommand createPutContactsCommand(Contact contact);
+    public PutContactsCommand createPutContactsCommand(Contact contact);
 
 }
