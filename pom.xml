@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>nl.tweeenveertig</groupId>
   <artifactId>seagull-api-wrapper</artifactId>
-  <version>0.2</version>
+  <version>0.2.1-SNAPSHOT</version>
   <name>Seagull API Wrapper</name>
 
     <parent>
