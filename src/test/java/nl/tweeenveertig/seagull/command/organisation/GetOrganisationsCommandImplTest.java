@@ -6,9 +6,11 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.util.List;
 
+import mockit.NonStrictExpectations;
 import nl.tweeenveertig.seagull.command.BaseCommandTest;
 import nl.tweeenveertig.seagull.model.Organisation;
 
+import org.apache.http.client.methods.HttpRequestBase;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -44,6 +46,23 @@ public class GetOrganisationsCommandImplTest extends BaseCommandTest {
     public void faultyGetAllOrganisationsTest() throws IOException {
         setStatusLineCode(200);
         loadJsonSample("organisation-test-sample-faulty.json");
+        account.getOrganisationsCommandFactory().createGetOrganisationsCommand().call();
+    }
+
+    @Test
+    public void createCallException() throws IOException {
+        new NonStrictExpectations() {
+            {
+                response.getEntity();
+                result = httpEntity;
+
+                response.getStatusLine();
+                result = statusLine;
+
+                httpClient.execute((HttpRequestBase) any);
+                result = new IOException();
+            }
+        };
         account.getOrganisationsCommandFactory().createGetOrganisationsCommand().call();
     }
 
