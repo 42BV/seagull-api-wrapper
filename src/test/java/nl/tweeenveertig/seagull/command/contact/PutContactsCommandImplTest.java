@@ -27,7 +27,6 @@ public class PutContactsCommandImplTest extends BaseCommandTest {
         contact.setFirstName("Bert");
         contact.setLastName("Henk");
         contact.setBackGround("Is a special man");
-        contact.setImageUrl("http://testimage.com/newimage");
         return contact;
     }
 

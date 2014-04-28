@@ -15,14 +15,14 @@ public class Main {
         long start = System.currentTimeMillis();
 
         Insightly insightly = new Insightly(args[0]);
-        //Organisation organisation = createOrganisation();
-        //organisation.setAddresses(createAddresses());
-        //organisation.setContactInfos(createContactInfo());
-        //organisation.setCustomFields(createCustomField());
-        //organisation.setBackGround("Robert's stage bedrijf");
-        //organisation.setOrganisationName("Blumen Riviera");
-        //organisation.setOrganisationId(29647786);
-        //insightly.updateOrganisation(organisation);
+        Organisation organisation = createOrganisation();
+        organisation.setAddresses(createAddresses());
+        organisation.setContactInfos(createContactInfo());
+        organisation.setCustomFields(createCustomField());
+        organisation.setBackGround("Robert's stage bedrijf");
+        organisation.setOrganisationName("BlumenRivera");
+        organisation.setOrganisationId(29665534);
+        insightly.updateOrganisation(organisation);
 
         long stop = System.currentTimeMillis();
         System.out.println("Time it took: " + (stop - start));
@@ -32,10 +32,10 @@ public class Main {
         List<Address> addresses = new ArrayList<Address>();
         Address address = new Address();
         address.setAddressType("Work");
-        address.setCity("Zoetermeer");
+        address.setCity("Zuid-Laren");
         address.setCountry("Nederland");
-        address.setPostcode("26514ZZ");
-        address.setStreet("Plantsoen 99");
+        address.setPostcode("4432");
+        address.setStreet("Prismalaan");
         addresses.add(address);
         return addresses;
 
@@ -45,7 +45,7 @@ public class Main {
         List<CustomField> customFields = new ArrayList<CustomField>();
         CustomField customField = new CustomField();
         customField.setCustomFieldId("ORGANISATION_FIELD_1");
-        customField.setFieldValue("25");
+        customField.setFieldValue("23");
         customFields.add(customField);
         return customFields;
     }
@@ -53,15 +53,10 @@ public class Main {
     public static List<ContactInfo> createContactInfo() {
         List<ContactInfo> contactInfos = new ArrayList<ContactInfo>();
         ContactInfo contactInfo = new ContactInfo();
-        contactInfo.setDetail("064565478");
+        contactInfo.setDetail("065555555");
         contactInfo.setLabel("Work");
         contactInfo.setType("Phone");
         contactInfos.add(contactInfo);
-        ContactInfo contactInfoN = new ContactInfo();
-        contactInfoN.setDetail("test@test.com");
-        contactInfoN.setLabel("Work");
-        contactInfoN.setType("Email");
-        contactInfos.add(contactInfoN);
         return contactInfos;
     }
 

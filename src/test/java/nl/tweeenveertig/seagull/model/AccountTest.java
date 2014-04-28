@@ -1,8 +1,6 @@
 package nl.tweeenveertig.seagull.model;
 
 import static org.junit.Assert.assertNotNull;
-import nl.tweeenveertig.seagull.model.Account;
-import nl.tweeenveertig.seagull.model.AccountCredentials;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,6 +24,11 @@ public class AccountTest {
     @Test
     public void contactsCommandFactoryTest() {
         assertNotNull("Contacts Command Factory should not be null, ", account.getContactsCommandFactory());
+    }
+
+    @Test
+    public void organisationsCommandFactoryTest() {
+        assertNotNull("Organisations Command Factory should not be null, ", account.getOrganisationsCommandFactory());
     }
 
     @Test

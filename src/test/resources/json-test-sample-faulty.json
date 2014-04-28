@@ -1,21 +1,22 @@
-{"CONTACT_ID":55363236,
-"SALUTATION":null,
-"FIRST_NAME":"Jan",
-"LAST_NAME":"Willem",
-"BACKGROUND":null,"IMAGE_URL":
-"http://s3.amazonaws.com/insightly.userfiles/43723/",
-"DEFAULT_LINKED_ORGANISATION":null,
-"DATE_CREATED_UTC":"2014-03-17 08:51:20",
-"DATE_UPDATED_UTC":"2014-03-17 08:51:20",
-"VISIBLE_TO":"EVERYONE",
-"VISIBLE_TEAM_ID":null,
-"VISIBLE_USER_IDS":null,
-"FAULTY_ATTRIBUTE":"Fault",
-"CUSTOMFIELDS":[],
-"ADDRESSES":[],
-"CONTACTINFOS":[],
-"DATES":[],
-"TAGS":[],
-"LINKS":[],
-"CONTACTLINKS":[]
-"EMAILLINKS":null}
+{
+    "CONTACT_ID": 55363236,
+    "SALUTATION": null,
+    "FIRST_NAME": "Jan",
+    "LAST_NAME": "Willem",
+    "BACKGROUND": null,
+    "DEFAULT_LINKED_ORGANISATION": null,
+    "DATE_CREATED_UTC": "2014-03-17 08:51:20",
+    "DATE_UPDATED_UTC": "2014-03-17 08:51:20",
+    "VISIBLE_TO": "EVERYONE",
+    "VISIBLE_TEAM_ID": null,
+    "VISIBLE_USER_IDS": null,
+    "FAULTY_ATTRIBUTE": "Fault",
+    "CUSTOMFIELDS": [],
+    "ADDRESSES": [],
+    "CONTACTINFOS": [],
+    "DATES": [],
+    "TAGS": [],
+    "LINKS": [],
+    "CONTACTLINKS": []
+    "EMAILLINKS": null
+}

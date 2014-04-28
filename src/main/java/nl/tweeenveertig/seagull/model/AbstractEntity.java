@@ -12,8 +12,6 @@ public class AbstractEntity {
 
     @JsonProperty("BACKGROUND")
     private String backGround;
-    @JsonProperty("IMAGE_URL")
-    private String imageUrl;
     @JsonProperty("DATE_CREATED_UTC")
     private String dateCreatedUtc;
     @JsonProperty("DATE_UPDATED_UTC")
@@ -35,14 +33,6 @@ public class AbstractEntity {
 
     public void setBackGround(String backGround) {
         this.backGround = backGround;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
     }
 
     public String getDateCreatedUtc() {
