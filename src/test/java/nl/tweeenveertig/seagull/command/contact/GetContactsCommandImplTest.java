@@ -23,7 +23,7 @@ public class GetContactsCommandImplTest extends BaseCommandTest {
     @Test
     public void getContactTest() throws IOException{
         setStatusLineCode(200);
-        loadJsonSample("json-contact-test-sample.json");
+        loadJsonSample("contact-test-sample.json");
         account.getContactsCommandFactory().createGetContactsCommand().call();
         verifyUrl("https://test-url.com/Contacts");
         verifyHeader("Authorization", "Basic a2V5");
@@ -35,7 +35,7 @@ public class GetContactsCommandImplTest extends BaseCommandTest {
     @Test
     public void getAllContactsTest() throws IOException {
         setStatusLineCode(200);
-        loadJsonSample("json-contact-test-sample.json");
+        loadJsonSample("contact-test-sample.json");
         List<Contact> contacts = account.getContactsCommandFactory().createGetContactsCommand().call();
         assertNotNull("The list should not be null, ", contacts);
         assertEquals("The list size does not match, ", 3, contacts.size());
@@ -44,7 +44,7 @@ public class GetContactsCommandImplTest extends BaseCommandTest {
     @Test
     public void faultyGetAllContactsTest() throws IOException {
         setStatusLineCode(200);
-        loadJsonSample("json-test-sample-faulty.json");
+        loadJsonSample("test-sample-faulty.json");
         account.getContactsCommandFactory().createGetContactsCommand().call();
     }
             

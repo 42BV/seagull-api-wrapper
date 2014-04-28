@@ -1,0 +1,21 @@
+[{
+    "ORGANISATION_ID": 1,
+    "ORGANISATION_NAME": "Apple",
+    "BACKGROUND": null,
+    "IMAGE_URL": "http://s3.amazonaws.com/insightly.userfiles/279599/",
+    "OWNER_USER_ID": 2,
+    "DATE_CREATED_UTC": "2014-04-28 08:32:44",
+    "DATE_UPDATED_UTC": "2014-04-28 08:32:44",
+    "VISIBLE_TO": "EVERYONE",
+    "VISIBLE_TEAM_ID": null,
+    "VISIBLE_USER_IDS": null,
+    "FAULTY_ATTRIBUTE": "Fault",
+    "CUSTOMFIELDS": [],
+    "ADDRESSES": [],
+    "CONTACTINFOS": [],
+    "DATES": [],
+    "TAGS": [],
+    "LINKS": [],
+    "ORGANISATIONLINKS": [],
+    "EMAILLINKS": null
+}]

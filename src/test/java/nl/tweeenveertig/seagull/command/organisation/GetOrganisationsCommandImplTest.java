@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 import nl.tweeenveertig.seagull.command.BaseCommandTest;
-import nl.tweeenveertig.seagull.model.Contact;
+import nl.tweeenveertig.seagull.model.Organisation;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,9 +22,9 @@ public class GetOrganisationsCommandImplTest extends BaseCommandTest {
     @Test
     public void getOrganisationTest() throws IOException {
         setStatusLineCode(200);
-        loadJsonSample("json-test-sample.json");
-        account.getContactsCommandFactory().createGetContactsCommand().call();
-        verifyUrl("https://test-url.com/Contacts");
+        loadJsonSample("");
+        account.getOrganisationsCommandFactory().createGetOrganisationsCommand().call();
+        verifyUrl("https://test-url.com/Organisations");
         verifyHeader("Authorization", "Basic a2V5");
         verifyHeader("Accept", "application/json");
         verifyStatusLineCode(200);
@@ -32,19 +32,19 @@ public class GetOrganisationsCommandImplTest extends BaseCommandTest {
     }
 
     @Test
-    public void getAllContactsTest() throws IOException {
+    public void getAllOrganisationsTest() throws IOException {
         setStatusLineCode(200);
-        loadJsonSample("json-test-sample.json");
-        List<Contact> contacts = account.getContactsCommandFactory().createGetContactsCommand().call();
-        assertNotNull("The list should not be null, ", contacts);
-        assertEquals("The list size does not match, ", 3, contacts.size());
+        loadJsonSample("organisation-test-sample.json");
+        List<Organisation> organisations = account.getOrganisationsCommandFactory().createGetOrganisationsCommand().call();
+        assertNotNull("The list should not be null, ", organisations);
+        assertEquals("The list size does not match, ", 2, organisations.size());
     }
 
     @Test
-    public void faultyGetAllContactsTest() throws IOException {
+    public void faultyGetAllOrganisationsTest() throws IOException {
         setStatusLineCode(200);
-        loadJsonSample("json-test-sample-faulty.json");
-        account.getContactsCommandFactory().createGetContactsCommand().call();
+        loadJsonSample("organisation-test-sample-faulty.json");
+        account.getOrganisationsCommandFactory().createGetOrganisationsCommand().call();
     }
 
 }

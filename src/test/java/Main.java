@@ -15,14 +15,15 @@ public class Main {
         long start = System.currentTimeMillis();
 
         Insightly insightly = new Insightly(args[0]);
-        Organisation organisation = createOrganisation();
-        organisation.setAddresses(createAddresses());
-        organisation.setContactInfos(createContactInfo());
-        organisation.setCustomFields(createCustomField());
-        organisation.setBackGround("Robert's stage bedrijf");
-        organisation.setOrganisationName("BlumenRivera");
-        organisation.setOrganisationId(29665534);
-        insightly.updateOrganisation(organisation);
+        //        Organisation organisation = createOrganisation();
+        //        organisation.setAddresses(createAddresses());
+        //        organisation.setContactInfos(createContactInfo());
+        //        organisation.setCustomFields(createCustomField());
+        //        organisation.setBackGround("Robert's stage bedrijf");
+        //        organisation.setOrganisationName("BlumenRivera");
+        //        organisation.setOrganisationId(29665534);
+        //        insightly.updateOrganisation(organisation);
+        insightly.getOrganisations();
 
         long stop = System.currentTimeMillis();
         System.out.println("Time it took: " + (stop - start));

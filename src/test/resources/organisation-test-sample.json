@@ -1,0 +1,56 @@
+[{
+    "ORGANISATION_ID": 1,
+    "ORGANISATION_NAME": "Apple",
+    "BACKGROUND": null,
+    "IMAGE_URL": "http://s3.amazonaws.com/insightly.userfiles/279599/",
+    "OWNER_USER_ID": 2,
+    "DATE_CREATED_UTC": "2014-04-28 08:32:44",
+    "DATE_UPDATED_UTC": "2014-04-28 08:32:44",
+    "VISIBLE_TO": "EVERYONE",
+    "VISIBLE_TEAM_ID": null,
+    "VISIBLE_USER_IDS": null,
+    "CUSTOMFIELDS": [],
+    "ADDRESSES": [],
+    "CONTACTINFOS": [],
+    "DATES": [],
+    "TAGS": [],
+    "LINKS": [],
+    "ORGANISATIONLINKS": [],
+    "EMAILLINKS": null
+}, {
+    "ORGANISATION_ID": 2,
+    "ORGANISATION_NAME": "Testing",
+    "BACKGROUND": "Test company",
+    "IMAGE_URL": "http://s3.amazonaws.com/insightly.userfiles/279599/",
+    "OWNER_USER_ID": 3,
+    "DATE_CREATED_UTC": "2014-04-28 06:50:04",
+    "DATE_UPDATED_UTC": "2014-04-28 07:03:43",
+    "VISIBLE_TO": "EVERYONE",
+    "VISIBLE_TEAM_ID": null,
+    "VISIBLE_USER_IDS": null,
+    "CUSTOMFIELDS": [{
+        "CUSTOM_FIELD_ID": "ORGANISATION_FIELD_1",
+        "FIELD_VALUE": "2"
+    }],
+    "ADDRESSES": [{
+        "ADDRESS_ID": 23,
+        "ADDRESS_TYPE": "Work",
+        "STREET": "Boulevard",
+        "CITY": "New York",
+        "STATE": null,
+        "POSTCODE": "4432ZZ",
+        "COUNTRY": null
+    }],
+    "CONTACTINFOS": [{
+        "CONTACT_INFO_ID": 236,
+        "TYPE": "PHONE",
+        "SUBTYPE": null,
+        "LABEL": "Work",
+        "DETAIL": "0122242424"
+    }],
+    "DATES": [],
+    "TAGS": [],
+    "LINKS": [],
+    "ORGANISATIONLINKS": [],
+    "EMAILLINKS": null
+}]
