@@ -53,6 +53,10 @@ public abstract class BaseCommandTest {
         };
     }
     
+    protected Account getAccount(){
+        return account;
+    }
+    
     protected void setStatusLineCode(final int statusLineCode){
         new NonStrictExpectations() {
             {

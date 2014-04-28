@@ -7,6 +7,8 @@ import nl.tweeenveertig.seagull.model.AccountCredentials;
 import nl.tweeenveertig.seagull.model.Contact;
 import nl.tweeenveertig.seagull.model.Organisation;
 
+import org.apache.http.impl.client.CloseableHttpClient;
+
 /**
  * Insightly class contains all the methods that a user needs in order to do CRUD operations
  * on the Insightly API. When making an instance of this class, an Insightly API key and Insightly API URL are needed.
@@ -100,6 +102,15 @@ public class Insightly {
      */
     public List<Organisation> getOrganisations() {
         return account.getOrganisationsCommandFactory().createGetOrganisationsCommand().call();
+    }
+
+    /**
+     * setHttpClient gives the ability to set an existing HttpClient which is defined by the users, instead of using
+     * the default once that is provided by the API.
+     * @param httpClient The CloseableHttpClient
+     */
+    public void setHttpClient(CloseableHttpClient httpClient) {
+        account.setHttpClient(httpClient);
     }
 
 }
