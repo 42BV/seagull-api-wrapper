@@ -10,12 +10,12 @@ public class ContactTest {
     public void constructContact() {
 
         Contact contact = new Contact();
-        contact.setContactId(0);
+        contact.setContactId(0L);
         contact.setDefaultLinkedOrganisation(0);
         contact.setFirstName("First");
         contact.setLastName("Last");
         contact.setSalutation("Salutation");
-        assertEquals("Id is not the same, ", 0, contact.getContactId());
+        assertEquals("Id is not the same, ", new Long(0), contact.getContactId());
         assertEquals("Default linked organisation is not the same, ", 0, contact.getDefaultLinkedOrganisation());
         assertEquals("Firstname is not the same, ", "First", contact.getFirstName());
         assertEquals("Lastname is not the same, ", "Last", contact.getLastName());

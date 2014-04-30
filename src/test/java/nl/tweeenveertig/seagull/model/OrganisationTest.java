@@ -10,12 +10,11 @@ public class OrganisationTest {
     public void constructOrganisation() {
 
         Organisation organisation = new Organisation();
-        organisation.setOrganisationId(123);
+        organisation.setOrganisationId(123L);
         organisation.setOrganisationName("Test company");
 
-        assertEquals("Id is not the same, ", 123, organisation.getOrganisationId());
+        assertEquals("Id is not the same, ", new Long(123), organisation.getOrganisationId());
         assertEquals("Name is not the same, ", "Test company", organisation.getOrganisationName());
 
     }
-
 }

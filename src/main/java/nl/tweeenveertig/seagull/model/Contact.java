@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Contact extends AbstractEntity {
     @JsonProperty("CONTACT_ID")
-    private int contactId;
+    private Long contactId;
     @JsonProperty("SALUTATION")
     private String salutation;
     @JsonProperty("FIRST_NAME")
@@ -21,11 +21,11 @@ public class Contact extends AbstractEntity {
     @JsonProperty("DEFAULT_LINKED_ORGANISATION")
     private int defaultLinkedOrganisation;
 
-    public int getContactId() {
+    public Long getContactId() {
         return contactId;
     }
 
-    public void setContactId(int contactId) {
+    public void setContactId(Long contactId) {
         this.contactId = contactId;
     }
 

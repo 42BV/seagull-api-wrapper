@@ -11,16 +11,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Organisation extends AbstractEntity {
 
     @JsonProperty("ORGANISATION_ID")
-    private int organisationId;
+    private Long organisationId;
 
     @JsonProperty("ORGANISATION_NAME")
     private String organisationName;
 
-    public int getOrganisationId() {
+    public Long getOrganisationId() {
         return organisationId;
     }
 
-    public void setOrganisationId(int organisationId) {
+    public void setOrganisationId(Long organisationId) {
         this.organisationId = organisationId;
     }
 
