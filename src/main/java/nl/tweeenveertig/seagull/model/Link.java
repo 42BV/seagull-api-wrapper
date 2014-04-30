@@ -9,77 +9,77 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Link {
 
     @JsonProperty("LINK_ID")
-    private int linkId;
+    private Long linkId;
     @JsonProperty("CONTACT_ID")
-    private int contactId;
+    private Long contactId;
     @JsonProperty("OPPORTUNITY_ID")
-    private int opportunityId;
+    private Long opportunityId;
     @JsonProperty("ORGANISATION_ID")
-    private int organisationId;
+    private Long organisationId;
     @JsonProperty("PROJECT_ID")
-    private int projectId;
+    private Long projectId;
     @JsonProperty("SECOND_PROJECT_ID")
-    private int secondProjectId;
+    private Long secondProjectId;
     @JsonProperty("SECOND_OPPORTUNITY_ID")
-    private int secondOpportunityId;
+    private Long secondOpportunityId;
     @JsonProperty("ROLE")
     private String role;
     @JsonProperty("DETAILS")
     private String details;
 
-    public int getLinkId() {
+    public Long getLinkId() {
         return linkId;
     }
 
-    public void setLinkId(int linkId) {
+    public void setLinkId(Long linkId) {
         this.linkId = linkId;
     }
 
-    public int getContactId() {
+    public Long getContactId() {
         return contactId;
     }
 
-    public void setContactId(int contactId) {
+    public void setContactId(Long contactId) {
         this.contactId = contactId;
     }
 
-    public int getOpportunityId() {
+    public Long getOpportunityId() {
         return opportunityId;
     }
 
-    public void setOpportunityId(int opportunityId) {
+    public void setOpportunityId(Long opportunityId) {
         this.opportunityId = opportunityId;
     }
 
-    public int getOrganisationId() {
+    public Long getOrganisationId() {
         return organisationId;
     }
 
-    public void setOrganisationId(int organisationId) {
+    public void setOrganisationId(Long organisationId) {
         this.organisationId = organisationId;
     }
 
-    public int getProjectId() {
+    public Long getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(int projectId) {
+    public void setProjectId(Long projectId) {
         this.projectId = projectId;
     }
 
-    public int getSecondProjectId() {
+    public Long getSecondProjectId() {
         return secondProjectId;
     }
 
-    public void setSecondProjectId(int secondProjectId) {
+    public void setSecondProjectId(Long secondProjectId) {
         this.secondProjectId = secondProjectId;
     }
 
-    public int getSecondOpportunityId() {
+    public Long getSecondOpportunityId() {
         return secondOpportunityId;
     }
 
-    public void setSecondOpportunityId(int secondOpportunityId) {
+    public void setSecondOpportunityId(Long secondOpportunityId) {
         this.secondOpportunityId = secondOpportunityId;
     }
 

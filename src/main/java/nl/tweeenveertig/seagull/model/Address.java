@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Address {
     @JsonProperty("ADDRESS_ID")
-    private int addressId;
+    private Long addressId;
     @JsonProperty("ADDRESS_TYPE")
     private String addressType;
     @JsonProperty("STREET")
@@ -22,11 +22,11 @@ public class Address {
     @JsonProperty("COUNTRY")
     private String country;
 
-    public int getAddressId() {
+    public Long getAddressId() {
         return addressId;
     }
 
-    public void setAddressId(int addressId) {
+    public void setAddressId(Long addressId) {
         this.addressId = addressId;
     }
 

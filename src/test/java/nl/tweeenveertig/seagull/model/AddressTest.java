@@ -1,7 +1,6 @@
 package nl.tweeenveertig.seagull.model;
 
 import static org.junit.Assert.assertEquals;
-import nl.tweeenveertig.seagull.model.Address;
 
 import org.junit.Test;
 
@@ -10,14 +9,14 @@ public class AddressTest {
     @Test
     public void constructAddress() {
         Address address = new Address();
-        address.setAddressId(0);
+        address.setAddressId(0L);
         address.setAddressType("Type");
         address.setCity("City");
         address.setCountry("Country");
         address.setPostcode("Postcode");
         address.setState("State");
         address.setStreet("Street");
-        assertEquals("Id is not the same, ", 0, address.getAddressId());
+        assertEquals("Id is not the same, ", new Long(0), address.getAddressId());
         assertEquals("Type is not the same, ", "Type", address.getAddressType());
         assertEquals("City is not the same, ", "City", address.getCity());
         assertEquals("Country is not the same, ", "Country", address.getCountry());

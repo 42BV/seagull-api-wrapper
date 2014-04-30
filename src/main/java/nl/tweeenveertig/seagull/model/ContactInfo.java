@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class ContactInfo {
     @JsonProperty("CONTACT_INFO_ID")
-    private int contactInfoId;
+    private Long contactInfoId;
     @JsonProperty("TYPE")
     private String type;
     @JsonProperty("SUBTYPE")
@@ -18,11 +18,11 @@ public class ContactInfo {
     @JsonProperty("DETAIL")
     private String detail;
 
-    public int getContactInfoId() {
+    public Long getContactInfoId() {
         return contactInfoId;
     }
 
-    public void setContactInfoId(int contactInfoId) {
+    public void setContactInfoId(Long contactInfoId) {
         this.contactInfoId = contactInfoId;
     }
 
