@@ -13,20 +13,24 @@ public class Main {
     public static void main(String[] args) {
 
         long start = System.currentTimeMillis();
+        try {
+            Insightly insightly = new Insightly(args[0]);
+            //        Organisation organisation = createOrganisation();
+            //        organisation.setAddresses(createAddresses());
+            //        organisation.setContactInfos(createContactInfo());
+            //        organisation.setCustomFields(createCustomField());
+            //        organisation.setBackGround("Robert's stage bedrijf");
+            //        organisation.setOrganisationName("BlumenRivera");
+            //        organisation.setOrganisationId(29665534);
+            //        insightly.updateOrganisation(organisation);
+            insightly.getOrganisations();
+            long stop = System.currentTimeMillis();
+            System.out.println("Time it took: " + (stop - start));
 
-        Insightly insightly = new Insightly(args[0]);
-        //        Organisation organisation = createOrganisation();
-        //        organisation.setAddresses(createAddresses());
-        //        organisation.setContactInfos(createContactInfo());
-        //        organisation.setCustomFields(createCustomField());
-        //        organisation.setBackGround("Robert's stage bedrijf");
-        //        organisation.setOrganisationName("BlumenRivera");
-        //        organisation.setOrganisationId(29665534);
-        //        insightly.updateOrganisation(organisation);
-        insightly.getOrganisations();
+        } catch (Exception e) {
+            System.out.println("Foutje: " + e.getLocalizedMessage());
+        }
 
-        long stop = System.currentTimeMillis();
-        System.out.println("Time it took: " + (stop - start));
     }
 
     public static List<Address> createAddresses() {

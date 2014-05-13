@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Callable;
 
+import nl.tweeenveertig.seagull.exception.HttpStatusChecker;
 import nl.tweeenveertig.seagull.header.AbstractHeader;
 import nl.tweeenveertig.seagull.model.Account;
 
@@ -49,13 +50,16 @@ public abstract class AbstractCommand<M extends HttpRequestBase, N> implements C
     }
 
     /** 
-     * Call executes the HTTP Request. If something went wrong while executing the HTTP request, the method returns an empty list.
+     * Call executes the HTTP Request. The response is checked. If something went wrong while executing the HTTP request
+     * a runtime Exception is thrown, which describes what was wrong and which HTTP status code.
      * @return List<N> A list of objects
      */
     public List<N> call() {
+        HttpStatusChecker httpStatusChecker = new HttpStatusChecker();
         CloseableHttpResponse response = null;
         try {
             response = account.getHttpClient().execute(request);
+            httpStatusChecker.checkStatus(response);
             LOGGER.info("Request:" + request.getRequestLine());
             LOGGER.info("Statusline code: " + response.getStatusLine().getStatusCode());
             return getReturnObject(response);
