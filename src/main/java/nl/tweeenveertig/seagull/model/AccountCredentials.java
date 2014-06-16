@@ -38,7 +38,7 @@ public class AccountCredentials {
 
     /**
      * Gets the API key, an exception is thrown if the API key is empty.
-     * @return
+     * @return String
      */
     public String getApiKey() {
         if (apiKey == null) {

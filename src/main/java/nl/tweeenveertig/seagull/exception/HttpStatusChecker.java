@@ -21,14 +21,14 @@ public class HttpStatusChecker {
     private static final Map<Integer, RuntimeException> EXCEPTION_MAP = createExceptionMap();
 
     /**
-     * Craetes an instance of HttpStatusChecker
+     * Craetes an instance of HttpStatusChecker.
      */
     public HttpStatusChecker() {
 
     }
 
     /**
-     * Checks the HTTP status
+     * Checks the HTTP status.
      * @param response CloseableHttpResponse
      */
     public void checkStatus(CloseableHttpResponse response) {
