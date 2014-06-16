@@ -12,13 +12,13 @@ import org.apache.http.client.methods.CloseableHttpResponse;
  */
 public class HttpStatusChecker {
 
-    private static final Map<Integer, RuntimeException> EXCEPTION_MAP = createExceptionMap();
     private static final Integer REDIRECTION_CODE = 300;
     private static final Integer CLIENT_CODE = 400;
     private static final Integer SERVER_CODE = 500;
     private static final Integer UNAUTHORIZED_CODE = 401;
     private static final Integer FORBIDDEN_CODE = 403;
     private static final Integer NOT_FOUND_CODE = 404;
+    private static final Map<Integer, RuntimeException> EXCEPTION_MAP = createExceptionMap();
 
     /**
      * Craetes an instance of HttpStatusChecker
