@@ -1,5 +1,7 @@
 package nl.tweeenveertig.seagull.model;
 
+import nl.tweeenveertig.seagull.exception.InsightlyHttpException;
+
 import org.apache.commons.codec.binary.Base64;
 
 /**
@@ -23,11 +25,25 @@ public class AccountCredentials {
         this.url = url;
     }
 
+    /**
+     * Gets the URL, an exception is thrown if the URL is empty.
+     * @return String
+     */
     public String getUrl() {
+        if (url == null) {
+            throw new InsightlyHttpException("The URL is empty");
+        }
         return url;
     }
 
+    /**
+     * Gets the API key, an exception is thrown if the API key is empty.
+     * @return
+     */
     public String getApiKey() {
+        if (apiKey == null) {
+            throw new InsightlyHttpException("The API key is empty");
+        }
         return apiKey;
     }
 

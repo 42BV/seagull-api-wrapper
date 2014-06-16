@@ -2,7 +2,7 @@ package nl.tweeenveertig.seagull.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import nl.tweeenveertig.seagull.model.AccountCredentials;
+import nl.tweeenveertig.seagull.exception.InsightlyHttpException;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -30,6 +30,18 @@ public class AccountCredentialsTest {
     @Test
     public void apiKeyTest() {
         assertEquals("The API key is not set correctly, ", "test123", accountCredentials.getApiKey());
+    }
+
+    @Test(expected = InsightlyHttpException.class)
+    public void emptyURLTest() {
+        accountCredentials = new AccountCredentials("test123", null);
+        accountCredentials.getUrl();
+    }
+
+    @Test(expected = InsightlyHttpException.class)
+    public void emptyApiKeyTest() {
+        accountCredentials = new AccountCredentials(null, null);
+        accountCredentials.getApiKey();
     }
 
     /**
