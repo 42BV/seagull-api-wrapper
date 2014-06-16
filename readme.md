@@ -1,7 +1,7 @@
 Seagull API wrapper
 ==============
 Seagull API wrapper is a wrapper for the Insightly API, which allows the user to
-perform CRUD methods on entities, such as contacts, or organisations.
+perform CRUD methods on Insightly entities, such as contacts, or organisations.
 
 
 Getting started
@@ -16,14 +16,19 @@ Use this API key when creating an Insightly object:
 
 If the URL for the Insightly API is outdated, you can use this constructor to provide a URL:
 ```java
-    Insightly insightly = new Insightly("yourAPIKey", "theAPIUrl");
+    Insightly insightly = new Insightly("yourAPIKey", "newerAPIUrl");
 ```
 
 When an Insightly object is created, the user can start using the Seagull API Wrapper.
-To retrieve a list of contacts from you need the following code:
+To retrieve a list of contacts from Insightly you need the following code:
 
 ```java
     List<Contact> contactList = insightly.getContacts();
+```
+To retrieve a list of organisations from Insightly you need the following code:
+
+```java
+    List<Organisation> organisationList = insightly.getOrganisations();
 ```
 
 License
@@ -42,5 +47,5 @@ License
 
 To-do
 ---------------
-* Add organisations and opportunities.
+* Add opportunities.
 
