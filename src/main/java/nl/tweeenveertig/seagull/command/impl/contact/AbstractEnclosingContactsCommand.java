@@ -11,22 +11,22 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
 /**
- * AbstractPostContactsCommand is an abstract class that is used by PutContactsCommandImpl and PostContactsCommandImpl
+ * AbstractEnclosingContactsCommand is an abstract class that is used by PutContactsCommandImpl and PostContactsCommandImpl
  * because both these classes use the same methods to post data to the Insightly API.
  * @param <M> The HttpEntityEnclosingRequestBase
  * @param <N> The generic object
  * @author Ruben Zorgman
  */
-public abstract class AbstractPostContactsCommand<M extends HttpEntityEnclosingRequestBase, N> extends AbstractEnclosingRequest<M, N> {
+public abstract class AbstractEnclosingContactsCommand<M extends HttpEntityEnclosingRequestBase, N> extends AbstractEnclosingRequest<M, N> {
 
     private Contact contact;
 
     /**
-     * Creates an instance of AbstractPostContactsCommand.
+     * Creates an instance of AbstractEnclosingContactsCommand.
      * @param account The account
      * @param contact The contact
      */
-    public AbstractPostContactsCommand(Account account, Contact contact) {
+    public AbstractEnclosingContactsCommand(Account account, Contact contact) {
         super(account, modifyUrl(account.getAccountCredentials().getUrl()));
         this.contact = contact;
     }

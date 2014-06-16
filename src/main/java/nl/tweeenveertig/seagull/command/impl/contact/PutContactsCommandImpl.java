@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
  * PutContactsCommandImpl is the implementation class to update an existing contact.
  * @author Ruben Zorgman
  */
-public class PutContactsCommandImpl extends AbstractPostContactsCommand<HttpPut, Contact> implements PutContactsCommand {
+public class PutContactsCommandImpl extends AbstractEnclosingContactsCommand<HttpPut, Contact> implements PutContactsCommand {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PutContactsCommandImpl.class);
 

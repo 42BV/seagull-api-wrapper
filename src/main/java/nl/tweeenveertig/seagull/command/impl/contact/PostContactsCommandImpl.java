@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
  * PostContactsCommandImpl is the implementation class that creates a contact.
  * @author Ruben Zorgman
  */
-public class PostContactsCommandImpl extends AbstractPostContactsCommand<HttpPost, Contact> implements PostContactsCommand {
+public class PostContactsCommandImpl extends AbstractEnclosingContactsCommand<HttpPost, Contact> implements PostContactsCommand {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PostContactsCommandImpl.class);
 

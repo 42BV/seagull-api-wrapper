@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
  * PostOrganisationsCommandImpl is the implementation class that creates an organisation.
  * @author Ruben Zorgman
  */
-public class PostOrganisationsCommandImpl extends AbstractPostOrganisationsCommand<HttpPost, Organisation> implements PostOrganisationsCommand {
+public class PostOrganisationsCommandImpl extends AbstractEnclosingOrganisationsCommand<HttpPost, Organisation> implements PostOrganisationsCommand {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PostOrganisationsCommandImpl.class);
 

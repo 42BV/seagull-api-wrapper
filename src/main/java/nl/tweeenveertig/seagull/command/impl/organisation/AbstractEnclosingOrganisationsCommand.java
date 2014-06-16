@@ -11,22 +11,22 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
 /**
- * AbstractPostOrganisationsCommand is an abstract class that is used by PutOrganisationsCommandImpl and PostOrganisationsCommandImpl
+ * AbstractEnclosingOrganisationsCommand is an abstract class that is used by PutOrganisationsCommandImpl and PostOrganisationsCommandImpl
  * because both these classes use the same methods to post data to the Insightly API.
  * @param <M> The HttpEntityEnclosingRequestBase
  * @param <N> The generic object
  * @author Ruben Zorgman
  */
-public abstract class AbstractPostOrganisationsCommand<M extends HttpEntityEnclosingRequestBase, N> extends AbstractEnclosingRequest<M, N> {
+public abstract class AbstractEnclosingOrganisationsCommand<M extends HttpEntityEnclosingRequestBase, N> extends AbstractEnclosingRequest<M, N> {
 
     private Organisation organisation;
 
     /**
-     * Creates an instance of AbstractPostOrganisationsCommand.
+     * Creates an instance of AbstractEnclosingOrganisationsCommand.
      * @param account The account
      * @param organisation The organisation
      */
-    public AbstractPostOrganisationsCommand(Account account, Organisation organisation) {
+    public AbstractEnclosingOrganisationsCommand(Account account, Organisation organisation) {
         super(account, modifyUrl(account.getAccountCredentials().getUrl()));
         this.organisation = organisation;
     }

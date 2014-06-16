@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
  * PutOrganisationsCommandImpl is the implementation class to update an existing organisation.
  * @author Ruben Zorgman
  */
-public class PutOrganisationsCommandImpl extends AbstractPostOrganisationsCommand<HttpPut, Organisation> implements PutOrganisationsCommand {
+public class PutOrganisationsCommandImpl extends AbstractEnclosingOrganisationsCommand<HttpPut, Organisation> implements PutOrganisationsCommand {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PutOrganisationsCommandImpl.class);
 

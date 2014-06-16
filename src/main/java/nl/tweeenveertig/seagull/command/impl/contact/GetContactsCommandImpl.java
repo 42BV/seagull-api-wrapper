@@ -28,7 +28,7 @@ public class GetContactsCommandImpl extends AbstractGetCommand<HttpGet, Contact>
         setHeader(new AuthorizationHeader(account.getAccountCredentials().getBase64ApiKey()));
     }
 
-    //Static, omdat super() deze methode anders niet accepteert
+    //Static, because super() needs it.
     private static String modifyUrl(String url) {
         url += CONTACTS_URL_STRING;
         return url;
