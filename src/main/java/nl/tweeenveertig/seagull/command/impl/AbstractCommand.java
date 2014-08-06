@@ -55,6 +55,10 @@ public abstract class AbstractCommand<M extends HttpRequestBase, N> implements C
      * @return List<N> A list of objects
      */
     public List<N> call() {
+        return call(false);
+    }
+
+    private List<N> call(boolean retry) {
         HttpStatusChecker httpStatusChecker = new HttpStatusChecker();
         CloseableHttpResponse response = null;
         try {
@@ -64,8 +68,13 @@ public abstract class AbstractCommand<M extends HttpRequestBase, N> implements C
             LOGGER.info("Statusline code: " + response.getStatusLine().getStatusCode());
             return getReturnObject(response);
         } catch (IOException e) {
-            LOGGER.error("IO exception: could not execute HTTP request, message: " + e.getLocalizedMessage());
-            return Collections.<N> emptyList();
+            if (retry) {
+                LOGGER.error("IO exception: could not execute HTTP request, message: " + e.getLocalizedMessage());
+                return Collections.<N> emptyList();
+            } else {
+                LOGGER.info("Attempting first HTTP retry");
+                return call(true);
+            }
         }
     }
 
