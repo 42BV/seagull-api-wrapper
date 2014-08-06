@@ -12,8 +12,8 @@
     </parent>
 
     <properties>
-        <httpclient.version>4.3.2</httpclient.version>
-        <httpcore.version>4.3.1</httpcore.version>
+        <httpclient.version>4.3.4</httpclient.version>
+        <httpcore.version>4.3.2</httpcore.version>
         <jackson-databind.version>2.3.0</jackson-databind.version>
         <slf4j.version>1.7.6</slf4j.version>
         <commons-codec.version>1.2</commons-codec.version>

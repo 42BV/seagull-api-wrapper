@@ -5,6 +5,7 @@ import nl.tweeenveertig.seagull.command.base.factory.OrganisationsCommandFactory
 import nl.tweeenveertig.seagull.command.impl.factory.ContactsCommandFactoryImpl;
 import nl.tweeenveertig.seagull.command.impl.factory.OrganisationsCommandFactoryImpl;
 
+import org.apache.http.config.SocketConfig;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
@@ -19,6 +20,7 @@ public class Account {
     private AccountCredentials accountCredentials;
     private CloseableHttpClient httpClient;
     private static final int MAX_CONNECTIONS = 10000;
+    private static final int SOCKET_TIMEOUT = 3000;
 
     /**
      * Creates a new instance of Account, along with the account credentials that are set by the user.
@@ -65,6 +67,12 @@ public class Account {
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
         connectionManager.setMaxTotal(MAX_CONNECTIONS);
         connectionManager.setDefaultMaxPerRoute(MAX_CONNECTIONS);
+
+        SocketConfig socketConfig = SocketConfig.custom()
+                .setSoTimeout(SOCKET_TIMEOUT)
+                .build();
+        connectionManager.setDefaultSocketConfig(socketConfig);
+
         return connectionManager;
     }
 
