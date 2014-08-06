@@ -72,7 +72,7 @@ public abstract class AbstractCommand<M extends HttpRequestBase, N> implements C
                 LOGGER.error("IO exception: could not execute HTTP request, message: " + e.getLocalizedMessage());
                 return Collections.<N> emptyList();
             } else {
-                LOGGER.info("Attempting first HTTP retry");
+                LOGGER.error("Attempting first HTTP retry");
                 return call(true);
             }
         }

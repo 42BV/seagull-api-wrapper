@@ -50,15 +50,9 @@ public class GetOrganisationsCommandImplTest extends BaseCommandTest {
     }
 
     @Test
-    public void createCallException() throws IOException {
+    public void createRetryCallException() throws IOException {
         new NonStrictExpectations() {
             {
-                response.getEntity();
-                result = httpEntity;
-
-                response.getStatusLine();
-                result = statusLine;
-
                 httpClient.execute((HttpRequestBase) any);
                 result = new IOException();
             }
