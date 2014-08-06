@@ -17,15 +17,12 @@ public class HttpStatusCheckerTest {
     @Mocked
     protected StatusLine statusLine;
 
-    private HttpStatusChecker checker;
-
     public HttpStatusCheckerTest() {
 
     }
 
     @Before
     public void setup() {
-        checker = new HttpStatusChecker();
         new NonStrictExpectations() {
             {
                 response.getStatusLine();
@@ -66,7 +63,7 @@ public class HttpStatusCheckerTest {
     private String catchExceptionMessage() {
         String exception = "";
         try {
-            checker.checkStatus(response);
+            HttpStatusChecker.checkStatus(response);
         } catch (Exception e) {
             exception = e.getLocalizedMessage();
         }

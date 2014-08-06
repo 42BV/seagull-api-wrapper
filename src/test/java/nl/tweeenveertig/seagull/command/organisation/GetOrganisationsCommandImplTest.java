@@ -8,6 +8,7 @@ import java.util.List;
 
 import mockit.NonStrictExpectations;
 import nl.tweeenveertig.seagull.command.BaseCommandTest;
+import nl.tweeenveertig.seagull.exception.InsightlyConnectionException;
 import nl.tweeenveertig.seagull.model.Organisation;
 
 import org.apache.http.client.methods.HttpRequestBase;
@@ -49,7 +50,7 @@ public class GetOrganisationsCommandImplTest extends BaseCommandTest {
         account.getOrganisationsCommandFactory().createGetOrganisationsCommand().call();
     }
 
-    @Test
+    @Test(expected = InsightlyConnectionException.class)
     public void createRetryCallException() throws IOException {
         new NonStrictExpectations() {
             {

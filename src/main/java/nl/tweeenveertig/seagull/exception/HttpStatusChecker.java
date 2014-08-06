@@ -21,9 +21,9 @@ public class HttpStatusChecker {
     private static final Map<Integer, RuntimeException> EXCEPTION_MAP = createExceptionMap();
 
     /**
-     * Craetes an instance of HttpStatusChecker.
+     * Creates an instance of HttpStatusChecker.
      */
-    public HttpStatusChecker() {
+    private HttpStatusChecker() {
 
     }
 
@@ -31,7 +31,7 @@ public class HttpStatusChecker {
      * Checks the HTTP status.
      * @param response CloseableHttpResponse
      */
-    public void checkStatus(CloseableHttpResponse response) {
+    public static void checkStatus(CloseableHttpResponse response) {
         int statusCode = response.getStatusLine().getStatusCode();
         if (EXCEPTION_MAP.containsKey(statusCode)) {
             throw EXCEPTION_MAP.get(statusCode);

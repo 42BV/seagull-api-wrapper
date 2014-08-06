@@ -1,11 +1,11 @@
 package nl.tweeenveertig.seagull.command.impl;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Callable;
 
 import nl.tweeenveertig.seagull.exception.HttpStatusChecker;
+import nl.tweeenveertig.seagull.exception.InsightlyConnectionException;
 import nl.tweeenveertig.seagull.header.AbstractHeader;
 import nl.tweeenveertig.seagull.model.Account;
 
@@ -59,20 +59,18 @@ public abstract class AbstractCommand<M extends HttpRequestBase, N> implements C
     }
 
     private List<N> call(boolean retry) {
-        HttpStatusChecker httpStatusChecker = new HttpStatusChecker();
         CloseableHttpResponse response = null;
         try {
             response = account.getHttpClient().execute(request);
-            httpStatusChecker.checkStatus(response);
+            HttpStatusChecker.checkStatus(response);
             LOGGER.info("Request:" + request.getRequestLine());
             LOGGER.info("Statusline code: " + response.getStatusLine().getStatusCode());
             return getReturnObject(response);
         } catch (IOException e) {
             if (retry) {
-                LOGGER.error("IO exception: could not execute HTTP request, message: " + e.getLocalizedMessage());
-                return Collections.<N> emptyList();
+                throw new InsightlyConnectionException("IOException: " + e.getMessage());
             } else {
-                LOGGER.error("Attempting first HTTP retry");
+                LOGGER.error("---------------------- Attempting HTTP request retry ----------------------");
                 return call(true);
             }
         }

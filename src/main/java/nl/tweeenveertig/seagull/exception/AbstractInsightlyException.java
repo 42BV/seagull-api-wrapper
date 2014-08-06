@@ -1,10 +1,10 @@
 package nl.tweeenveertig.seagull.exception;
 
 /**
- * Class for Http exceptions.
+ * Abstract class for custom Insightly exceptions.
  * @author Ruben Zorgman
  */
-public class InsightlyHttpException extends AbstractInsightlyException {
+public abstract class AbstractInsightlyException extends RuntimeException {
 
     /**
      * 
@@ -12,10 +12,10 @@ public class InsightlyHttpException extends AbstractInsightlyException {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Creates an instance of InsightlyHttpException.
+     * Creates an instance of InsightlyException
      * @param message Exception message
      */
-    public InsightlyHttpException(String message) {
+    public AbstractInsightlyException(String message) {
         super(message);
     }
 
